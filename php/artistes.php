@@ -1,3 +1,38 @@
+<?php
+require_once("connect.php");
+
+// Test de connexion
+if (!$db) {
+    echo "Erreur de connexion à la base de données.";
+    exit;
+}
+
+// Récupérer l'ID de l'artiste depuis l'URL
+$artiste_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+if ($artiste_id <= 0) {
+    echo "ID d'artiste invalide.";
+    exit;
+}
+
+// Préparer la requête SQL pour récupérer les détails de l'artiste avec son genre
+$sql = "
+    SELECT a.nom, a.description, a.photo, a.location, a.reseaux_sociaux, g.categorie, g.genre 
+    FROM artistes a
+    JOIN genres g ON a.id_genre = g.id_genre
+    WHERE a.id_artiste = :id_artiste
+";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(':id_artiste', $artiste_id, PDO::PARAM_INT);
+
+if (!$stmt->execute()) {
+    echo "Erreur SQL : " . implode(" ", $stmt->errorInfo());
+    exit;
+}
+
+$artiste = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +40,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>IN:DISCOVERY</title>
+    <title><?php echo htmlspecialchars($artiste['nom']); ?> - IN:DISCOVERY</title>
 </head>
 <body>
-    <header>
+<header>
         <div class="navbar">
             <nav class="nav-links">
                 <div class="logo"><a href="index.html"><img src="Images/logodiscovery.png" alt="Logo IN:DISCOVERY."></a></div>
@@ -45,22 +80,14 @@
         </div>
     </header>
     <main>
-       <section id="cdc">
-        <article id="cdc-container">
-            <h2>:COUP DE COEUR.</h2>
-            <figure id="cdc-content">
-
-            </figure>
-        </article>
-       </section>
-       <section id="decouvrez">
-        <article id="decouvrez-container">
-            <h2>:DÉCOUVREZ. nos groupes vedettes</h2>
-            <figure id="decouvrez-content">
-                
-            </figure>
-        </article>
-       </section>
+        <section id="artiste-details">
+            <img src="<?php echo htmlspecialchars($artiste['photo']); ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
+            <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>
+            <p><?php echo htmlspecialchars($artiste['genre']); ?></p>
+            <p>Location: <?php echo htmlspecialchars($artiste['location']); ?></p>
+            <p><?php echo htmlspecialchars($artiste['description']); ?></p>
+            <p>Réseaux Sociaux: <?php echo htmlspecialchars($artiste['reseaux_sociaux']); ?></p>
+        </section>
     </main>
     <footer>
         <div class="section-logo">
