@@ -129,6 +129,13 @@ main {
     z-index: 1000;
 }
 
+.img-bloc img {
+    max-height: 260px;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 ul {
     list-style: none;
     display:flex;
@@ -241,6 +248,14 @@ footer {
     
     .side-menu {
         width: 249px;
+        display: flex;
+        min-width: 700px;
+        max-height: 289px;
+    }
+
+    .img-bloc img {
+        max-width: 249px;
+        min-height: 289px;
     }
 
     .dot {
@@ -277,5 +292,10 @@ footer {
     footer {
         flex-direction:unset;
         align-items: center;
+        height: 30%;
+    }
+
+    .section-contact {
+        height: 60%;
     }
 }
