@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : mar. 27 août 2024 à 12:53
+-- Généré le : mar. 27 août 2024 à 14:24
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -44,7 +44,10 @@ CREATE TABLE `artistes` (
 --
 
 INSERT INTO `artistes` (`id_artiste`, `nom`, `id_genre`, `location`, `description`, `photo`, `reseaux_sociaux`, `decouverte`, `cdc`) VALUES
-(1, 'First Draft', 1, 'Clermont-Ferrand', 'blablabla', 'images/punk-rock/first_draft/first_draft1.jpeg', '@firstdraft', 1, 1);
+(1, 'First Draft', 1, 'Clermont-Ferrand', 'blablabla', 'images/punk-rock/first_draft/first_draft1.jpeg', 'https://www.instagram.com/first_draft_music/', 0, 1),
+(2, 'Forgive', 5, 'Bourges/Nevers', 'blablabla', 'images/metal-hxc/forgive/forgive.jpeg', 'https://www.instagram.com/forgiveband/', 1, 0),
+(3, 'Foxhole', 2, 'Clermont-Ferrand', 'blablabla', 'images/punk-rock/foxhole/foxhole3.jpeg', 'https://www.instagram.com/foxhole_group/', 1, 0),
+(4, 'Lore', 6, 'Lyon', 'blablabla', 'images/metal-hxc/lore/lore2.jpeg', 'https://www.instagram.com/here_is_lore/', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -88,8 +91,13 @@ CREATE TABLE `genres` (
 --
 
 INSERT INTO `genres` (`id_genre`, `categorie`, `genre`) VALUES
-(1, 'punk/rock', 'post-punk'),
-(2, 'punk/rock', 'punk-rock');
+(1, 'punk/rock', 'Post-Rock'),
+(2, 'punk/rock', 'Punk-Rock'),
+(3, 'punk/rock', 'Punk / Hardcore'),
+(4, 'punk/rock', 'Indie-Rock'),
+(5, 'metal/hardcore', 'Post-Hardcore'),
+(6, 'metal/hardcore', 'Modern Hardcore'),
+(7, 'metal/hardcore', 'Metal Hardcore');
 
 -- --------------------------------------------------------
 
@@ -147,7 +155,7 @@ ALTER TABLE `suggestions`
 -- AUTO_INCREMENT pour la table `artistes`
 --
 ALTER TABLE `artistes`
-  MODIFY `id_artiste` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_artiste` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `concerts`
@@ -159,7 +167,7 @@ ALTER TABLE `concerts`
 -- AUTO_INCREMENT pour la table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id_genre` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_genre` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `suggestions`

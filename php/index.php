@@ -45,9 +45,6 @@ require_once("connect.php");
                         <span class="dot-menu-item">Suggestions</span></a>
                 </div>
             </div>
-            <div class="img-bloc">
-                <img src="images/punk-rock/first_draft/first_draft3.jpeg">
-            </div>
         </div>
     </header>
     <main>
@@ -67,11 +64,10 @@ if ($stmt->rowCount() > 0) {
     // Afficher les données pour chaque artiste
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<div class='artist'>
-                <a href='artistes.php?id=" . htmlspecialchars($row['id_artiste']) . "'>
-                    <img src='" . htmlspecialchars($row['photo']) . "' alt='" . htmlspecialchars($row['nom']) . "'>
-                    <h3>" . htmlspecialchars($row['nom']) . "</h3>
-                    <p>" . htmlspecialchars($row['description']) . "</p>
-                </a>
+                <img src='" . htmlspecialchars($row['photo']) . "' alt='" . htmlspecialchars($row['nom']) . "'>
+                <h3>" . htmlspecialchars($row['nom']) . "</h3>
+                <p>" . htmlspecialchars($row['description']) . "</p>
+                <a href='artistes.php?id=" . htmlspecialchars($row['id_artiste']) . "'>→ Voir la fiche artiste</a>
               </div>";
     }
 } else {

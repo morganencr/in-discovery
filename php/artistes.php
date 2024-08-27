@@ -48,7 +48,7 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
 <header>
         <div class="navbar">
             <nav class="nav-links">
-                <div class="logo"><a href="index.html"><img src="Images/logodiscovery.png" alt="Logo IN:DISCOVERY."></a></div>
+                <div class="logo"><a href="index.php"><img src="Images/logodiscovery.png" alt="Logo IN:DISCOVERY."></a></div>
                 <button class="burger-menu" id="burger-menu">
                     <img src="images/icones/menu-burger.png" alt="Menu Burger">
                 </button>
@@ -74,9 +74,6 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
                         <span class="dot-menu-item">Suggestions</span></a>
                 </div>
             </div>
-            <div class="img-bloc">
-                <img src="images/punk-rock/first_draft/first_draft3.jpeg">
-            </div>
         </div>
     </header>
     <main>
@@ -84,9 +81,15 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
             <img src="<?php echo htmlspecialchars($artiste['photo']); ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
             <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>
             <p><?php echo htmlspecialchars($artiste['genre']); ?></p>
-            <p>Location: <?php echo htmlspecialchars($artiste['location']); ?></p>
+            <p><?php echo htmlspecialchars($artiste['location']); ?></p>
             <p><?php echo htmlspecialchars($artiste['description']); ?></p>
-            <p>Réseaux Sociaux: <?php echo htmlspecialchars($artiste['reseaux_sociaux']); ?></p>
+            <p>Où les trouver : 
+        <?php if (!empty($artiste['reseaux_sociaux'])): ?>
+            <a href="<?php echo htmlspecialchars($artiste['reseaux_sociaux']); ?>" target="_blank">Suivez-les sur Instagram</a>
+        <?php else: ?>
+            Aucun lien Instagram disponible
+        <?php endif; ?>
+    </p>
         </section>
     </main>
     <footer>
