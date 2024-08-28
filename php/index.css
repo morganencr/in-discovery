@@ -111,13 +111,6 @@ main {
     font-size: 1.2rem;
 }
 
-.menu-dots {
-    display: flex;
-    justify-content: space-evenly;
-    width: 80%;
-    margin-bottom: 40px;
-}
-
 /* Styles pour le menu burger activé */
 .side-menu.active {
     display: flex;
@@ -157,6 +150,84 @@ ul {
 .burger-menu-content .nav-item:hover {
     transform: translateX(10px) translateY(0);
     opacity: 1;
+}
+
+.img-deco img{
+    max-height:280px;
+    width:100%;
+    object-fit: cover;
+}
+
+/*MAIN*/
+
+#span-title {
+    color: #844865;
+}
+
+#cdc {
+    margin-top: 60px;
+}
+
+#cdc-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cdc-content{
+    margin-top: 15px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+#cdc-content .artist {
+    width: 50%;
+}
+
+#cdc-content .artist img{
+    max-width: 350px;
+    max-height: 350px;
+    min-height: 350px;
+    min-width: 350px;
+    object-fit: cover;
+}
+
+.artist .caption{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#decouvrez-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+#decouvrez-container h2{
+    text-align: center;
+}
+
+#decouvrez-content {
+    margin: 50px;
+    display:flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#decouvrez-content .artist img{
+    max-width: 350px;
+    max-height: 350px;
+    min-height: 350px;
+    min-width: 350px;
+    object-fit: cover;
+}
+
+h3 {
+    color: #844865;
 }
 
 /*FOOTER*/
@@ -215,6 +286,7 @@ footer {
 }
 
 @media (min-width: 768px) {
+
     .burger-menu {
         display: none; 
     }
@@ -230,13 +302,29 @@ footer {
 
     .container-menu {
         display: flex; 
-        width: 249px;
+        width: 400px;
         flex-direction: column;
         margin-left: 0px;
         background-color: rgb(22, 22, 22);
         align-items: center;
-        min-height: 280px;
         justify-content: space-evenly;
+        height:110px;
+        min-height: 280px;
+    }
+
+    .img-deco {
+        width: 80%;
+        height: 280px; 
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .img-deco img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 
     .nav-links {
@@ -248,39 +336,80 @@ footer {
     }
     
     .side-menu {
-        width: 249px;
+        width: 100%;
+        display: flex;
+        justify-content:center;
     }
 
-    .dot {
-        position: relative; 
-        display: inline-block; 
+    .menu-dots {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 80%;
+        height: 300px;
+        align-items:center;
+    }
+
+    .menu-dots .dot-menu-item {
+        color: white;
     }
 
     .dot-menu-item {
-      
-        position: absolute;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        top: -55px;
-        left: 50%; 
-        transform: translateX(-50%); 
-        white-space: nowrap; 
-        z-index: 10; 
-        transition: opacity 0.3s ease-out; 
-        opacity: 0;
-        visibility: hidden;
-        font-weight:300;
-        font-size: 1.1rem;
-        pointer-events: none; /* pour empêcher de capturer les clics lorsqu'invisible */
+        transition: color 0.3s ease;
     }
 
-    /* Afficher les éléments du menu au survol */
-    .dot:hover .dot-menu-item {
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
+    /*MAIN*/
+
+    h2 {
+        font-size: 2rem;
     }
+
+    #cdc {
+        width: 100%;
+    }
+
+    #cdc-container {
+        width: 100%;
+    }
+
+    #cdc-content {
+        width :80%;
+        overflow: hidden;
+        margin-top: 40px;
+    }
+
+    #cdc-content .artist {
+        display:flex;
+        justify-content: space-evenly;
+        align-items: flex-start; 
+        gap: 20px;
+        width: unset;
+    }
+
+    #cdc-content .artist img {
+        min-width: 50%;
+        max-width:50%;
+        object-fit: cover;
+    }
+
+    .caption {
+        max-width: 400px;
+        flex: 1;
+    }
+
+    .description {
+    overflow: visible; 
+    text-overflow: clip; 
+    white-space: normal; 
+    padding: 0 10px; 
+    }
+
+    p {
+        margin: 0; 
+        line-height: 1.5; 
+    }
+
+    /*FOOTER*/
 
     footer {
         flex-direction:unset;
