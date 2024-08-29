@@ -56,7 +56,8 @@ try {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>Découvrez</title>
+    <link rel="stylesheet" href="decouvrez.css">
+    <title>:DÉCOUVREZ.</title>
 </head>
 <body>
 <header>
@@ -69,8 +70,8 @@ try {
                 <div class="burger-menu-content" id="burger-menu-content">
                     <ul>
                     <li><a href="decouvrez.php" class="nav-item">Découvrir</a></li>
-                    <li><a href="#" class="nav-item">Les prochains concerts</a></li>
-                    <li><a href="#" class="nav-item">Suggestions</a></li>
+                    <li><a href="concerts.php" class="nav-item">Les prochains concerts</a></li>
+                    <li><a href="formulaire.php" class="nav-item">Suggestions</a></li>
                     <li><a href="#" class="nav-item">À propos</a></li>
                     </ul>
                 </div>
@@ -84,10 +85,10 @@ try {
                     <a href="decouvrez.php" class="dot dot1"><img src="images/icones/dot1.png" alt="Dot 1"></a>
                     
                 <span class="dot-menu-item item2">Les prochains concerts</span>
-                    <a href="#" class="dot dot2"><img src="images/icones/dot2.png" alt="Dot 2"></a>
+                    <a href="concerts.php" class="dot dot2"><img src="images/icones/dot2.png" alt="Dot 2"></a>
                     
                 <span class="dot-menu-item item3">Suggestions</span>
-                    <a href="#" class="dot dot3"><img src="images/icones/dot3.png" alt="Dot 3"></a>
+                    <a href="formulaire.php" class="dot dot3"><img src="images/icones/dot3.png" alt="Dot 3"></a>
             </div>
             </div>
             <div class="img-deco">
@@ -135,6 +136,7 @@ try {
     </figure>
     </article>
 </section>
+</main>
 <footer>
     <div class="section-logo">
         <img src="images/logodiscovery.png" alt="Logo IN:DISCOVERY.">

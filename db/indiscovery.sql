@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : mer. 28 août 2024 à 12:24
+-- Généré le : jeu. 29 août 2024 à 11:07
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -44,10 +44,11 @@ CREATE TABLE `artistes` (
 --
 
 INSERT INTO `artistes` (`id_artiste`, `nom`, `id_genre`, `location`, `description`, `photo`, `reseaux_sociaux`, `decouverte`, `cdc`) VALUES
-(1, 'First Draft', 1, 'Clermont-Ferrand', 'Les chaussettes de l\'archiduchesse sont-elles sèches, archi sèches ? ça on ne sait pas du coup et finalement on ne saura peut-être jamais, que c\'est dommage... Après voilà quoi c\'est la dure loi de la vie quoi.', 'images/punk-rock/first_draft/first_draft1.jpeg', 'https://www.instagram.com/first_draft_music/', 0, 1),
-(2, 'Forgive', 5, 'Bourges/Nevers', 'blablabla', 'images/metal-hxc/forgive/forgive.jpeg', 'https://www.instagram.com/forgiveband/', 1, 0),
-(3, 'Foxhole', 2, 'Clermont-Ferrand', 'blablabla', 'images/punk-rock/foxhole/foxhole3.jpeg', 'https://www.instagram.com/foxhole_group/', 1, 0),
-(4, 'Lore', 6, 'Lyon', 'blablabla', 'images/metal-hxc/lore/lore2.jpeg', 'https://www.instagram.com/here_is_lore/', 1, 0);
+(1, 'FIRST DRAFT', 1, 'Clermont-Ferrand', 'Les chaussettes de l\'archiduchesse sont-elles sèches, archi sèches ? ça on ne sait pas du coup et finalement on ne saura peut-être jamais, que c\'est dommage... Après voilà quoi c\'est la dure loi de la vie quoi.', 'images/punk-rock/first_draft/first_draft1.jpeg', 'https://www.instagram.com/first_draft_music/', 0, 1),
+(2, 'FORGIVE', 5, 'Bourges/Nevers', 'blablabla', 'images/metal-hxc/forgive/forgive.jpeg', 'https://www.instagram.com/forgiveband/', 1, 0),
+(3, 'FOXHOLE', 2, 'Clermont-Ferrand', 'blablabla', 'images/punk-rock/foxhole/foxhole3.jpeg', 'https://www.instagram.com/foxhole_group/', 1, 0),
+(4, 'LORE', 6, 'Lyon', 'blablabla', 'images/metal-hxc/lore/lore2.jpeg', 'https://www.instagram.com/here_is_lore/', 1, 0),
+(5, 'PATHFINDER', 4, 'Bourges/Nevers', 'blablablabla', 'images/punk-rock/pathfinder/pathfinder3.jpeg', 'https://www.instagram.com/pathfinder.indie/', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -68,11 +69,19 @@ CREATE TABLE `artiste_concert` (
 
 CREATE TABLE `concerts` (
   `id_concert` int NOT NULL,
+  `photo` varchar(255) NOT NULL,
   `groupe` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  `lieux` text NOT NULL,
-  `prix` decimal(10,2) NOT NULL
+  `lieux` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `concerts`
+--
+
+INSERT INTO `concerts` (`id_concert`, `photo`, `groupe`, `lieux`) VALUES
+(1, 'images/next/foxhole.jpeg', 'FOXHOLE', ''),
+(2, 'images/next/gadget.jpg', 'GADGET', 'Raymond Bar (Clermont-Ferrand)'),
+(3, 'images/next/lore.jpg', 'LORE', 'Viva Mexico (Grenoble)');
 
 -- --------------------------------------------------------
 
@@ -155,13 +164,13 @@ ALTER TABLE `suggestions`
 -- AUTO_INCREMENT pour la table `artistes`
 --
 ALTER TABLE `artistes`
-  MODIFY `id_artiste` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_artiste` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `concerts`
 --
 ALTER TABLE `concerts`
-  MODIFY `id_concert` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_concert` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `genres`
