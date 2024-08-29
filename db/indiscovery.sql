@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : mar. 27 août 2024 à 14:24
+-- Généré le : mer. 28 août 2024 à 12:24
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -44,7 +44,7 @@ CREATE TABLE `artistes` (
 --
 
 INSERT INTO `artistes` (`id_artiste`, `nom`, `id_genre`, `location`, `description`, `photo`, `reseaux_sociaux`, `decouverte`, `cdc`) VALUES
-(1, 'First Draft', 1, 'Clermont-Ferrand', 'blablabla', 'images/punk-rock/first_draft/first_draft1.jpeg', 'https://www.instagram.com/first_draft_music/', 0, 1),
+(1, 'First Draft', 1, 'Clermont-Ferrand', 'Les chaussettes de l\'archiduchesse sont-elles sèches, archi sèches ? ça on ne sait pas du coup et finalement on ne saura peut-être jamais, que c\'est dommage... Après voilà quoi c\'est la dure loi de la vie quoi.', 'images/punk-rock/first_draft/first_draft1.jpeg', 'https://www.instagram.com/first_draft_music/', 0, 1),
 (2, 'Forgive', 5, 'Bourges/Nevers', 'blablabla', 'images/metal-hxc/forgive/forgive.jpeg', 'https://www.instagram.com/forgiveband/', 1, 0),
 (3, 'Foxhole', 2, 'Clermont-Ferrand', 'blablabla', 'images/punk-rock/foxhole/foxhole3.jpeg', 'https://www.instagram.com/foxhole_group/', 1, 0),
 (4, 'Lore', 6, 'Lyon', 'blablabla', 'images/metal-hxc/lore/lore2.jpeg', 'https://www.instagram.com/here_is_lore/', 1, 0);

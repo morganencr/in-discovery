@@ -172,24 +172,25 @@ ul {
     display:flex;
     flex-direction: column;
     align-items: center;
+    width:100%;
 }
 
 #cdc-content{
     margin-top: 15px;
     width:100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column; 
+    align-items: center; 
 }
 
 #cdc-content .artist {
-    width: 50%;
+    width: 50%; 
+    max-width: 100%; 
+    margin: 10px; 
 }
 
 #cdc-content .artist img{
-    max-width: 350px;
-    max-height: 350px;
-    min-height: 350px;
-    min-width: 350px;
+    max-width: 100%; 
     object-fit: cover;
 }
 
@@ -212,18 +213,21 @@ ul {
 }
 
 #decouvrez-content {
+    display:flex;
     margin: 50px;
     display:flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
+    width: 60%;
+    box-sizing: border-box;
 }
 
 #decouvrez-content .artist img{
-    max-width: 350px;
-    max-height: 350px;
-    min-height: 350px;
-    min-width: 350px;
-    object-fit: cover;
+    width: 100%;  
+    height: auto; 
+    max-width: 100%; 
+    object-fit: cover; 
 }
 
 h3 {
@@ -397,16 +401,59 @@ footer {
         flex: 1;
     }
 
+    .caption h3{
+        font-size: 1.5rem;
+    }
+
     .description {
-    overflow: visible; 
-    text-overflow: clip; 
-    white-space: normal; 
-    padding: 0 10px; 
+        display: -webkit-box; 
+        -webkit-box-orient: vertical; 
+        -webkit-line-clamp: 5; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        line-height: 1.5; 
+        max-height: 7.5em;
+        font-size: 1.3rem;
     }
 
     p {
         margin: 0; 
         line-height: 1.5; 
+    }
+
+    #decouvrez-container {
+        flex-direction: column; 
+        align-items: center;
+        margin: 70px auto; 
+    }
+
+    #decouvrez-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 20px; 
+        max-width: 100%; 
+        box-sizing: border-box; 
+    }
+
+    #decouvrez-content .artist {
+        flex: 1; 
+        display: flex;
+        flex-direction: column;
+        max-width: 33%; 
+        box-sizing: border-box; 
+        overflow: hidden; 
+        text-align: center; 
+    }
+
+    #decouvrez-content .artist img {
+        width: 100%; 
+        height: auto; 
+        object-fit: cover; 
+        max-width: 100%; 
+        max-height: 250px; 
+        min-height: 250px; 
     }
 
     /*FOOTER*/
@@ -418,6 +465,6 @@ footer {
     }
 
     .section-contact {
-        height: 60%;
+        height: 80%;
     }
 }
