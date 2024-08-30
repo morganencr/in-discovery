@@ -1,5 +1,4 @@
 <?php
-// Inclusion du fichier de connexion
 require_once 'connect.php';
 
 // Requête SQL pour récupérer les artistes des catégories 'punk/rock' et 'metal/hardcore'
@@ -72,10 +71,10 @@ try {
                     <li><a href="decouvrez.php" class="nav-item">Découvrir</a></li>
                     <li><a href="concerts.php" class="nav-item">Les prochains concerts</a></li>
                     <li><a href="formulaire.php" class="nav-item">Suggestions</a></li>
-                    <li><a href="#" class="nav-item">À propos</a></li>
+                    <li><a href="a-propos.php" class="nav-item">À propos</a></li>
                     </ul>
                 </div>
-                <a href="#" id="nav-item">À propos</a>
+                <a href="a-propos.php" id="nav-item">À propos</a>
             </nav>
         </div>
         <div class="side-menu">
@@ -97,6 +96,7 @@ try {
         </div>
     </header>
 <main>
+<h2>:DÉCOUVREZ.</h2>
 <section class="category-container">
     <article class="category-title"><h2>Punk/Rock</h2>
     <figure class="artistes-list">

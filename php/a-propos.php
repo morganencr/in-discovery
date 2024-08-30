@@ -1,14 +1,5 @@
 <?php
-require_once 'connect.php';
-
-// Récupérer les informations des concerts
-try {
-    $stmt = $db->query('SELECT * FROM concerts');
-    $concerts = $stmt->fetchAll();
-} catch (PDOException $e) {
-    echo "Erreur lors de la récupération des concerts : " . $e->getMessage();
-    exit();
-}
+require_once("connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +11,8 @@ try {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="concerts.css"> 
-    <title>Prochains Concerts</title>
+    <link rel="stylesheet" href="a-propos.css"> 
+    <title>À Propos</title>
 </head>
 <body>
 <header>
@@ -60,20 +51,41 @@ try {
             </div>
         </div>
     </header>
+<body>
     <main>
-    <section class="concerts-container">
-    <h1>:PROCHAINS. CONCERTS</h1>
-            <?php foreach ($concerts as $concert): ?>
-                    <td><img src="<?php echo htmlspecialchars($concert['photo']); ?>" alt="<?php echo htmlspecialchars($concert['groupe']); ?>" width="100"></td>
-                    <td><?php echo htmlspecialchars($concert['groupe']); ?></td>
-                    <td><?php echo htmlspecialchars($concert['lieux']); ?></td>
-            <?php endforeach; ?>
-    </section>
+        <section class="main-container">
+            <h2>:À PROPOS.</h2>
+            <article class="content">
+                <figure id="content-1">
+                    <h3>→ QUI SOMMES-NOUS ?</h3>
+                    <p>IN:DISCOVERY. est un concept né d'un mélange de créativité et d'envie de 
+                        partager. À une époque où la consommation se veut rapide, simple et efficace,
+                        il ne faut pas perdre de vue que derrière chaque produit consommé 
+                        se cache un travail long et fastidieux. D'autant plus qu'aujourd'hui, avec les 
+                        écarts sociaux qui se creusent au sein de notre société, il est important de mettre 
+                        en lumière l'art des artistes au statu social-professionnel toujours aussi 
+                        précaire. Ce sont de ces artistes-là dont nous avions envie de porter le message, à large échelle,
+                        pour qu'à leur tour ils puissent toucher un plus grand monde avec leur plume.
+                        <br>
+                        Ici, vous retrouverez des groupes et artistes issus de deux grandes scènes musicales :
+                        le Punk-Rock et le Metal-Hardcore. Mais plus important encore, nous prenons soin de vous faire 
+                        découvrir des groupes encore inconnus du grand public. 
+                    </p>
+                </figure>
+                <figure id="content-2">
+                    <h3>→ POURQUOI EST-CE UN PROJET QUI NOUS TIENT À COEUR ?</h3>
+                    <p>Ce projet est aussi dans le fond un projet collaboratif avec vous, grâce à notre formulaire de 
+                        suggestions par lequel vous pouvez nous envoyer vos propres découvertes. Nous ne tirons aucun bénéfices 
+                        de ce site, à part celui de pouvoir partager et contribuer (peut-être) à l'acsension future de ces groupes.
+                    </p>
+                </figure>
+            </article>
+        </section>
     </main>
     <footer>
-    <div class="section-logo">
-        <img src="images/logodiscovery.png" alt="Logo IN:DISCOVERY.">
-    </div>
+        <div class="section-logo">
+            <img src="images/logodiscovery.png" alt="Logo IN:DISCOVERY.">
+        </div>
         <div class="section-contact">
             <p id="titre-contact">CONTACT</p>
             <p id="mail">contact.indiscovery@gmail.com</p>
@@ -83,7 +95,7 @@ try {
             </div>
         </div>
     </footer>
-<script src="burger.js"></script>
-<script src="dots.js"></script>
+    <script src="burger.js"></script>
+    <script src="dots.js"></script>
 </body>
 </html>

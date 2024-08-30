@@ -58,10 +58,10 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
                     <li><a href="decouvrez.php" class="nav-item">Découvrir</a></li>
                     <li><a href="concerts.php" class="nav-item">Les prochains concerts</a></li>
                     <li><a href="formulaire.php" class="nav-item">Suggestions</a></li>
-                    <li><a href="#" class="nav-item">À propos</a></li>
+                    <li><a href="a-propos.php" class="nav-item">À propos</a></li>
                     </ul>
                 </div>
-                <a href="#" id="nav-item">À propos</a>
+                <a href="a-propos.php" id="nav-item">À propos</a>
             </nav>
         </div>
         <div class="side-menu">

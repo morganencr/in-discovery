@@ -12,7 +12,7 @@ require_once("connect.php");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>IN:DISCOVERY</title>
+    <title>IN:DISCOVERY.</title>
 </head>
 
 <body>
@@ -29,10 +29,10 @@ require_once("connect.php");
                         <li><a href="decouvrez.php" class="nav-item">Découvrir</a></li>
                         <li><a href="concerts.php" class="nav-item">Les prochains concerts</a></li>
                         <li><a href="formulaire.php" class="nav-item">Suggestions</a></li>
-                        <li><a href="#" class="nav-item">À propos</a></li>
+                        <li><a href="a-propos.php" class="nav-item">À propos</a></li>
                     </ul>
                 </div>
-                <a href="#" id="nav-item">À propos</a>
+                <a href="a-propos.php" id="nav-item">À propos</a>
             </nav>
         </div>
         <div class="side-menu">
