@@ -12,6 +12,23 @@ require_once("connect.php");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script>
+        // séquence du Konami Code
+        var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        var konamiIndex = 0;
+
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    // redirige vers l'interface de gestion
+                    window.location.href = 'back/interface-gestion.php';
+                }
+            } else {
+                konamiIndex = 0; // réinitialise l'index si une touche est incorrecte
+            }
+        });
+    </script>
     <title>IN:DISCOVERY.</title>
 </head>
 
