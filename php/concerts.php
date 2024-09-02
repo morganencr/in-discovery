@@ -64,7 +64,7 @@ try {
     <section class="concerts-container">
     <h1>:PROCHAINS. CONCERTS</h1>
             <?php foreach ($concerts as $concert): ?>
-                    <td><img src="<?php echo htmlspecialchars($concert['photo']); ?>" alt="<?php echo htmlspecialchars($concert['groupe']); ?>" width="100"></td>
+                    <td><img src="images/next/<?php echo htmlspecialchars($concert['photo']); ?>" alt="<?php echo htmlspecialchars($concert['groupe']); ?>" width="100"></td>
                     <td><?php echo htmlspecialchars($concert['groupe']); ?></td>
                     <td><?php echo htmlspecialchars($concert['lieux']); ?></td>
             <?php endforeach; ?>

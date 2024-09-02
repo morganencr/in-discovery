@@ -11,7 +11,7 @@
         <!-- Section Artistes -->
         <section id="section-artistes">
             <h2>Tous les Artistes/Groupes</h2>
-            <button onclick="showForm('artiste')">Ajouter un Artiste/Groupe</button>
+            <button onclick="window.location.href='add.php?type=artiste'">Ajouter un Artiste/Groupe</button>
             <table id="artists-table">
                 <thead>
                     <tr>
@@ -32,6 +32,7 @@
         <!-- Section Découvrir -->
         <section id="section-decouvrir">
             <h2>Découvrir</h2>
+            <button onclick="window.location.href='add.php?type=decouverte'">Ajouter une Découverte</button>
             <table id="decouvrir-table">
                 <thead>
                     <tr>
@@ -50,7 +51,7 @@
         <!-- Section Prochains Concerts -->
         <section id="section-concerts">
             <h2>Prochains Concerts</h2>
-            <button onclick="showForm('concert')">Ajouter un Concert</button>
+            <button onclick="window.location.href='add.php?type=concert'">Ajouter un Concert</button>
             <table id="concerts-table">
                 <thead>
                     <tr>

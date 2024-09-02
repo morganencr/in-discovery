@@ -17,7 +17,6 @@ if ($result->rowCount() > 0) {
         echo "<td>" . ($row['decouverte'] ? 'Oui' : 'Non') . "</td>";
         echo "<td>" . ($row['cdc'] ? 'Oui' : 'Non') . "</td>";
         echo "<td>
-                <button onclick=\"editConcert(" . $row['id_artiste'] . ")\">Ajouter</button>
                 <button onclick=\"showForm('artiste', " . $row['id_artiste'] . ")\">Modifier</button>
                 <button onclick=\"location.href='save.php?delete=" . $row['id_artiste'] . "&type=artiste'\">Supprimer</button>
               </td>";

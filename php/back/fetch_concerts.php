@@ -11,15 +11,15 @@ try {
 
     if ($concerts->rowCount() > 0) {
         while($row = $concerts->fetch(PDO::FETCH_ASSOC)) {
+            $photoPath = 'images/images/next/' . htmlspecialchars($row["photo"]); // Mise à jour du chemin ici
             echo "<tr>
-                    <td><img src='" . htmlspecialchars($row["photo"]) . "' alt='Photo du concert' style='width: 100px; height: auto;'></td>
+                    <td><img src='" . $photoPath . "' alt='Photo du concert' style='width: 100px; height: auto;'></td>
                     <td>" . htmlspecialchars($row["groupe"]) . "</td>
                     <td>" . htmlspecialchars($row["lieux"]) . "</td>
                     <td>
-                            <button onclick=\"editConcert(" . $row['id_concert'] . ")\">Ajouter</button>
-                            <button onclick=\"editConcert(" . $row['id_concert'] . ")\">Modifier</button>
-                            <button onclick=\"deleteConcert(" . $row['id_concert'] . ")\">Supprimer</button>
-                        </td>
+                        <button onclick=\"editConcert(" . $row['id_concert'] . ")\">Modifier</button>
+                        <button onclick=\"deleteConcert(" . $row['id_concert'] . ")\">Supprimer</button>
+                    </td>
                   </tr>";
         }
     } else {
