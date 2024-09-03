@@ -89,6 +89,35 @@ try {
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Modifier <?php echo htmlspecialchars($type); ?></title>
+    <style>
+        .image-preview {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function previewImage() {
+            var select = document.querySelector("select[name='photo']");
+            var preview = document.getElementById("imagePreview");
+            var selectedOption = select.options[select.selectedIndex].value;
+
+            console.log("Selected option:", selectedOption); // Déboguer la valeur sélectionnée
+
+            if (selectedOption) {
+                // Assurez-vous d'utiliser le bon chemin pour les concerts et les autres types
+                preview.src = '../images/next/' + selectedOption;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            previewImage(); // Appelle la fonction pour afficher l'image actuelle
+        });
+    </script>
 </head>
 <body>
     <h2>Modifier <?php echo htmlspecialchars($type); ?></h2>
@@ -116,13 +145,16 @@ try {
             <input type="text" name="description" value="<?php echo htmlspecialchars($data['description']); ?>"><br>
 
             <label for="photo">Photo:</label>
-            <select name="photo">
+            <select name="photo" onchange="previewImage()">
                 <?php foreach ($all_photos as $filename => $path) : ?>
                     <option value="<?php echo htmlspecialchars($filename); ?>" <?php echo ($filename == $data['photo']) ? 'selected' : ''; ?>>
                         <?php echo htmlspecialchars($filename); ?>
                     </option>
                 <?php endforeach; ?>
             </select><br>
+
+            <!-- Image de prévisualisation -->
+            <img id="imagePreview" class="image-preview" src="../images/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image"><br>
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" name="reseaux_sociaux" value="<?php echo htmlspecialchars($data['reseaux_sociaux']); ?>"><br>
@@ -139,21 +171,24 @@ try {
             <label for="groupe">Groupe:</label>
             <input type="text" name="groupe" value="<?php echo htmlspecialchars($data['groupe']); ?>" required><br>
 
-            <label for="lieux">Lieux:</label>
-            <input type="text" name="lieux" value="<?php echo htmlspecialchars($data['lieux']); ?>"><br>
-
             <label for="photo">Photo:</label>
-            <select name="photo">
+            <select name="photo" onchange="previewImage()">
                 <?php foreach ($concert_photos as $filename => $path) : ?>
-                    <?php $basename = basename($path); ?>
-                    <option value="<?php echo htmlspecialchars($basename); ?>" <?php echo ($basename == $data['photo']) ? 'selected' : ''; ?>>
-                        <?php echo htmlspecialchars($basename); ?>
+                    <option value="<?php echo htmlspecialchars($filename); ?>" <?php echo ($filename == $data['photo']) ? 'selected' : ''; ?>>
+                        <?php echo htmlspecialchars($filename); ?>
                     </option>
                 <?php endforeach; ?>
             </select><br>
+
+            <!-- Image de prévisualisation -->
+            <img id="imagePreview" class="image-preview" src="../images/next/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image"><br>
+
+            <label for="lieux">Lieux:</label>
+            <input type="text" name="lieux" value="<?php echo htmlspecialchars($data['lieux']); ?>"><br>
         <?php endif; ?>
 
-        <button type="submit">Sauvegarder les modifications</button>
+        <input type="submit" value="Sauvegarder">
+        <button type="button" onclick="window.history.back()">Annuler</button>
     </form>
 </body>
 </html>

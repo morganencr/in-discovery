@@ -116,6 +116,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Ajouter un élément</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function previewImage() {
+    var select = document.getElementById("photo");
+    var preview = document.getElementById("imagePreview");
+    var selectedOption = select.options[select.selectedIndex].value;
+    
+    var basePath = '<?php echo $type === 'concert' ? 'images/next/' : 'images/'; ?>';
+    if (selectedOption) {
+        preview.src = basePath + selectedOption;
+        preview.style.display = 'block';
+    } else {
+        preview.style.display = 'none';
+    }
+}
+    </script>
 </head>
 <body>
     <h1>Ajouter un <?php echo htmlspecialchars($type); ?></h1>
@@ -145,12 +160,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <textarea id="description" name="description"></textarea>
 
             <label for="photo">Photo:</label>
-            <select id="photo" name="photo">
+            <select id="photo" name="photo" onchange="previewImage()">
                 <option value="">Sélectionner une photo</option>
-                <?php foreach ($photos as $photo): ?>
-                <option value="<?php echo htmlspecialchars($photo); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
-                <?php endforeach; ?>
+                <?php
+                if (isset($photos) && is_array($photos)) {
+                    foreach ($photos as $photo): ?>
+                        <option value="<?php echo htmlspecialchars(basename($photo)); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
+                    <?php endforeach;
+                } else {
+                    echo "<option value=''>Aucune photo disponible</option>";
+                }
+                ?>
             </select>
+
+            <!-- Image de prévisualisation -->
+            <img id="imagePreview" class="image-preview" src="#" alt="Aperçu de l'image">
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" id="reseaux_sociaux" name="reseaux_sociaux">
@@ -164,12 +188,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php elseif ($type === 'concert'): ?>
             <!-- Formulaire pour ajouter un concert -->
             <label for="photo">Photo:</label>
-            <select id="photo" name="photo">
+            <select id="photo" name="photo" onchange="previewImage()">
                 <option value="">Sélectionner une photo</option>
-                <?php foreach ($photos as $photo): ?>
-                    <option value="<?php echo htmlspecialchars(basename($photo)); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
-                <?php endforeach; ?>
+                <?php
+                if (isset($photos) && is_array($photos)) {
+                    foreach ($photos as $photo): ?>
+                        <option value="<?php echo htmlspecialchars(basename($photo)); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
+                    <?php endforeach;
+                } else {
+                    echo "<option value=''>Aucune photo disponible</option>";
+                }
+                ?>
             </select>
+
+            <!-- Image de prévisualisation -->
+            <img id="imagePreview" class="image-preview" src="#" alt="Aperçu de l'image">
 
             <label for="groupe">Groupe:</label>
             <input type="text" id="groupe" name="groupe" required>
