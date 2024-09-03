@@ -20,7 +20,7 @@ try {
             $genre = isset($row["genre_name"]) ? htmlspecialchars($row["genre_name"]) : 'Non spécifié';
             $location = isset($row["location"]) ? htmlspecialchars($row["location"]) : 'Non spécifié';
             $description = isset($row["description"]) ? htmlspecialchars($row["description"]) : 'Non spécifié';
-            $photo = isset($row["photo"]) ? 'images/' . htmlspecialchars($row["photo"]) : 'images/default.jpg';
+            $photo = isset($row["photo"]) ? 'images/artistes/' . htmlspecialchars($row["photo"]) : 'images/default.jpg';
             $reseaux_sociaux = isset($row["reseaux_sociaux"]) ? htmlspecialchars($row["reseaux_sociaux"]) : 'Non spécifié';
             $decouverte = isset($row["decouverte"]) && $row["decouverte"] ? 'Oui' : 'Non';
             $cdc = isset($row["cdc"]) && $row["cdc"] ? 'Oui' : 'Non';

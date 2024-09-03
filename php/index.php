@@ -66,7 +66,7 @@ require_once("connect.php");
                 </div>
             </div>
             <div class="img-deco">
-                <img src="images/punk-rock/muscle/muscle2.jpeg">
+                <img src="images/artistes/muscle2.jpeg">
             </div>
         </div>
     </header>

@@ -16,7 +16,7 @@ $all_photos = [];
 
 // Chemins des dossiers
 $concert_folder = '../images/next'; // Dossier des photos pour concerts
-$all_photos_folder = '../images'; // Dossier des photos pour artistes et découvertes
+$all_photos_folder = '../images/artistes'; // Dossier des photos pour artistes et découvertes
 
 // Fonction pour récupérer les fichiers d'un dossier et ses sous-dossiers
 function getPhotos($dir) {
@@ -98,26 +98,24 @@ try {
         }
     </style>
     <script>
-        function previewImage() {
-            var select = document.querySelector("select[name='photo']");
-            var preview = document.getElementById("imagePreview");
-            var selectedOption = select.options[select.selectedIndex].value;
+    function previewImage() {
+        var select = document.querySelector("select[name='photo']");
+        var preview = document.getElementById("imagePreview");
+        var selectedOption = select.options[select.selectedIndex].value;
 
-            console.log("Selected option:", selectedOption); // Déboguer la valeur sélectionnée
-
-            if (selectedOption) {
-                // Assurez-vous d'utiliser le bon chemin pour les concerts et les autres types
-                preview.src = '../images/next/' + selectedOption;
-                preview.style.display = 'block';
-            } else {
-                preview.style.display = 'none';
-            }
+        var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
+        if (selectedOption) {
+            preview.src = basePath + selectedOption;
+            preview.style.display = 'block';
+        } else {
+            preview.style.display = 'none';
         }
+    }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            previewImage(); // Appelle la fonction pour afficher l'image actuelle
-        });
-    </script>
+    document.addEventListener("DOMContentLoaded", function() {
+        previewImage(); // Appelle la fonction pour afficher l'image actuelle
+    });
+</script>
 </head>
 <body>
     <h2>Modifier <?php echo htmlspecialchars($type); ?></h2>
@@ -154,7 +152,7 @@ try {
             </select><br>
 
             <!-- Image de prévisualisation -->
-            <img id="imagePreview" class="image-preview" src="../images/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image"><br>
+            <img id="imagePreview" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image"><br>
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" name="reseaux_sociaux" value="<?php echo htmlspecialchars($data['reseaux_sociaux']); ?>"><br>

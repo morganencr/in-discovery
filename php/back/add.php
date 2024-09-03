@@ -117,20 +117,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Ajouter un élément</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function previewImage() {
-    var select = document.getElementById("photo");
-    var preview = document.getElementById("imagePreview");
-    var selectedOption = select.options[select.selectedIndex].value;
-    
-    var basePath = '<?php echo $type === 'concert' ? 'images/next/' : 'images/'; ?>';
-    if (selectedOption) {
-        preview.src = basePath + selectedOption;
-        preview.style.display = 'block';
-    } else {
-        preview.style.display = 'none';
+    function previewImage() {
+        var select = document.getElementById("photo");
+        var preview = document.getElementById("imagePreview");
+        var selectedOption = select.options[select.selectedIndex].value;
+
+        var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
+        if (selectedOption) {
+            preview.src = basePath + selectedOption;
+            preview.style.display = 'block';
+        } else {
+            preview.style.display = 'none';
+        }
     }
-}
-    </script>
+</script>
 </head>
 <body>
     <h1>Ajouter un <?php echo htmlspecialchars($type); ?></h1>
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
 
             <!-- Image de prévisualisation -->
-            <img id="imagePreview" class="image-preview" src="#" alt="Aperçu de l'image">
+            <img id="imagePreview" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image">
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" id="reseaux_sociaux" name="reseaux_sociaux">
@@ -202,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
 
             <!-- Image de prévisualisation -->
-            <img id="imagePreview" class="image-preview" src="#" alt="Aperçu de l'image">
+            <img id="imagePreview" class="image-preview" src="../images/next/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image">
 
             <label for="groupe">Groupe:</label>
             <input type="text" id="groupe" name="groupe" required>

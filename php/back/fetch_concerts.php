@@ -11,7 +11,7 @@ try {
 
     if ($concerts->rowCount() > 0) {
         while($row = $concerts->fetch(PDO::FETCH_ASSOC)) {
-            $photoPath = 'images/' . htmlspecialchars($row["photo"]); // Concaténer correctement le chemin
+            $photoPath = 'images/next/' . htmlspecialchars($row["photo"]); // Concaténer correctement le chemin
             echo "<tr>
                     <td><img src='" . $photoPath . "' alt='Photo du concert' style='width: 100px; height: auto;'></td>
                     <td>" . htmlspecialchars($row["groupe"]) . "</td>
