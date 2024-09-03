@@ -18,6 +18,9 @@
                         <th>Nom</th>
                         <th>Genre</th>
                         <th>Lieu</th>
+                        <th>Photo</th>
+                        <th>Description</th>
+                        <th>Réseaux sociaux</th>
                         <th>Découverte</th>
                         <th>Coup de Coeur</th>
                         <th>Actions</th>
@@ -25,25 +28,6 @@
                 </thead>
                 <tbody>
                     <?php include 'fetch_artists.php'; ?>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Section Découvrir -->
-        <section id="section-decouvrir">
-            <h2>Découvrir</h2>
-            <button onclick="window.location.href='add.php?type=decouverte'">Ajouter une Découverte</button>
-            <table id="decouvrir-table">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Genre</th>
-                        <th>Lieu</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php include 'fetch_decouvrir.php'; ?>
                 </tbody>
             </table>
         </section>

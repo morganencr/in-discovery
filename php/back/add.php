@@ -1,45 +1,40 @@
 <?php
-include_once '../connect.php'; // Assurez-vous que le chemin est correct
+include_once '../connect.php';
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 if (!$db) {
     die("Échec de la connexion à la base de données.");
 }
 
-// Récupération du type d'élément à ajouter
 $type = $_GET['type'] ?? '';
 
 // Récupérer les genres depuis la base de données
 $genres = [];
 try {
-    $sql = "SELECT id_genre, genre FROM genres"; // Modifiez ici pour récupérer les colonnes correctes
+    $sql = "SELECT id_genre, genre FROM genres";
     $stmt = $db->query($sql);
     $genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo "Erreur lors de la récupération des genres : " . $e->getMessage();
 }
 
-// Fonction pour récupérer les images depuis les sous-dossiers
+// Fonction pour récupérer les images d'un répertoire
 function getImagesFromDirectory($directory) {
     $images = [];
     $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
 
-    // Vérifie si le dossier existe
     if (is_dir($directory)) {
-        // Crée un objet RecursiveDirectoryIterator pour parcourir récursivement le dossier
         $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));
-
-        // Parcourt chaque fichier dans le dossier
         foreach ($iterator as $file) {
             if ($file->isFile()) {
-                // Récupère l'extension du fichier
                 $extension = strtolower(pathinfo($file->getFilename(), PATHINFO_EXTENSION));
-
-                // Ajoute le fichier à la liste s'il a une extension autorisée
                 if (in_array($extension, $allowedExtensions)) {
-                    // Construire un chemin relatif depuis le dossier 'images'
-                    $relativePath = str_replace(realpath($directory), '', realpath($file->getPathname()));
-                    $relativePath = ltrim($relativePath, '/'); // Supprime le "/" initial pour un chemin relatif
-                    $images[] = $relativePath;
+                    $relativePath = str_replace(realpath(__DIR__ . '/../'), '', realpath($file->getPathname()));
+                    $relativePath = ltrim($relativePath, '/');
+                    $images[$file->getFilename()] = $relativePath;
                 }
             }
         }
@@ -47,11 +42,18 @@ function getImagesFromDirectory($directory) {
     return $images;
 }
 
-// Utilisation de la fonction avec le chemin mis à jour
-$directory = __DIR__ . '/../images'; // Chemin complet vers le dossier 'images' dans le dossier 'php'
-$photos = getImagesFromDirectory($directory);
+// Définir les dossiers d'images
+$concert_folder = __DIR__ . '/../images/next';
+$all_photos_folder = __DIR__ . '/../images';
 
-// Gestion du formulaire
+// Récupérer les images en fonction du type
+if ($type === 'concert') {
+    $photos = getImagesFromDirectory($concert_folder);
+} else {
+    $photos = getImagesFromDirectory($all_photos_folder);
+}
+
+// Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
@@ -66,6 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $stmt = $db->prepare($sql);
+
+            // Préparer les paramètres
             $params = [
                 ':nom' => $_POST['nom'] ?? '',
                 ':id_genre' => $_POST['id_genre'] ?? '',
@@ -78,15 +82,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':groupe' => $_POST['groupe'] ?? '',
                 ':lieux' => $_POST['lieux'] ?? ''
             ];
+
+            // Filtrer les paramètres en fonction de la requête SQL
             $params = array_filter($params, function($v, $k) use ($sql) {
                 return strpos($sql, $k) !== false;
             }, ARRAY_FILTER_USE_BOTH);
 
-            $stmt->execute($params);
+            // Lier les paramètres avec bindParam
+            foreach ($params as $key => $value) {
+                $stmt->bindParam($key, $params[$key], PDO::PARAM_STR);
+            }
+
+            $stmt->execute();
 
             // Rediriger vers la page de gestion après ajout
-            header("Location: interface-gestion.php");
-            exit;
+            if (!headers_sent()) {
+                header("Location: interface-gestion.php");
+                exit;
+            } else {
+                echo "Les en-têtes ont déjà été envoyés, redirection impossible.";
+            }
         } catch (PDOException $e) {
             echo "Erreur lors de l'ajout : " . $e->getMessage();
         }
@@ -98,13 +113,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Ajouter un élément</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Ajouter un <?php echo htmlspecialchars($type); ?></h1>
 
-    <form method="POST" action="add.php?type=<?php echo htmlspecialchars($type); ?>">
+    <form method="POST" action="add.php?type=<?php echo htmlspecialchars($type); ?>" accept-charset="UTF-8">
         <input type="hidden" name="action" value="add">
 
         <?php if ($type === 'artiste'): ?>
@@ -144,24 +160,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="cdc">Coup de Coeur:</label>
             <input type="checkbox" id="cdc" name="cdc">
-
-        <?php elseif ($type === 'decouverte'): ?>
-            <!-- Formulaire pour ajouter une découverte -->
-            <label for="nom">Nom:</label>
-            <input type="text" id="nom" name="nom" required>
-
-            <label for="id_genre">Genre:</label>
-            <select id="id_genre" name="id_genre" required>
-                <option value="">Sélectionner un genre</option>
-                <?php foreach ($genres as $genre): ?>
-                    <option value="<?php echo htmlspecialchars($genre['id_genre']); ?>">
-                        <?php echo htmlspecialchars($genre['genre']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-
-            <label for="location">Lieu:</label>
-            <input type="text" id="location" name="location" required>
 
         <?php elseif ($type === 'concert'): ?>
             <!-- Formulaire pour ajouter un concert -->

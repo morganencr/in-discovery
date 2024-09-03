@@ -4,7 +4,7 @@ const DBNAME = "indiscovery";
 const DBUSER = "test";
 const DBPASS = "test";
 
-$dsn = "mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=utf8";
+$dsn = "mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=utf8mb4";
 
 try {
     $db = new PDO($dsn, DBUSER, DBPASS);

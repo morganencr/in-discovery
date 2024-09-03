@@ -116,7 +116,7 @@ require_once("connect.php");
                 <figure id="decouvrez-content">
                     <?php
                     // Récupérer les artistes pour la section Découvrez
-                    $sql2 = "SELECT id_artiste, nom, photo FROM artistes WHERE decouverte = 1 LIMIT 3";
+                    $sql2 = "SELECT id_artiste, nom, photo FROM artistes WHERE decouverte = 1";
                     $stmt2 = $db->query($sql2);
 
                     if (!$stmt2) {
