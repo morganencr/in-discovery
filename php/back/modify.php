@@ -60,9 +60,6 @@ try {
         case 'concert':
             $query = $db->prepare("SELECT * FROM concerts WHERE id_concert = ?");
             break;
-        case 'decouverte':
-            $query = $db->prepare("SELECT * FROM decouvertes WHERE id_decouverte = ?");
-            break;
         default:
             die("Type inconnu.");
     }
@@ -112,9 +109,26 @@ try {
         }
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        previewImage(); // Appelle la fonction pour afficher l'image actuelle
+    function previewImage2() {
+    var select = document.querySelector("select[name='photo2']");
+    var preview = document.getElementById("imagePreview2");
+    var selectedOption = select.options[select.selectedIndex].value;
+
+    var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
+    if (selectedOption) {
+        preview.src = basePath + selectedOption;
+        preview.style.display = 'block';
+    } else {
+        preview.style.display = 'none';
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    previewImage();  // Appelle la fonction pour afficher l'image actuelle de 'photo'
+    previewImage2(); // Appelle la fonction pour afficher l'image actuelle de 'photo2'
     });
+
+
 </script>
 </head>
 <body>
@@ -142,7 +156,7 @@ try {
             <label for="description">Description:</label>
             <input type="text" name="description" value="<?php echo htmlspecialchars($data['description']); ?>"><br>
 
-            <label for="photo">Photo:</label>
+            <label for="photo">Photo pour index:</label>
             <select name="photo" onchange="previewImage()">
                 <?php foreach ($all_photos as $filename => $path) : ?>
                     <option value="<?php echo htmlspecialchars($filename); ?>" <?php echo ($filename == $data['photo']) ? 'selected' : ''; ?>>
@@ -150,9 +164,17 @@ try {
                     </option>
                 <?php endforeach; ?>
             </select><br>
-
-            <!-- Image de prévisualisation -->
             <img id="imagePreview" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image"><br>
+
+            <label for="photo2">Photo pour Artistes:</label>
+<select name="photo2" onchange="previewImage2()">
+    <?php foreach ($all_photos as $filename => $path) : ?>
+        <option value="<?php echo htmlspecialchars($filename); ?>" <?php echo ($filename == $data['photo2']) ? 'selected' : ''; ?>>
+            <?php echo htmlspecialchars($filename); ?>
+        </option>
+    <?php endforeach; ?>
+</select>
+<img id="imagePreview2" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo2']); ?>" alt="Aperçu de la deuxième image"><br>
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" name="reseaux_sociaux" value="<?php echo htmlspecialchars($data['reseaux_sociaux']); ?>"><br>

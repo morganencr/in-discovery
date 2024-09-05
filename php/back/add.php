@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'add') {
         try {
             if ($type === 'artiste') {
-                $sql = "INSERT INTO artistes (nom, id_genre, location, description, photo, reseaux_sociaux, decouverte, cdc) VALUES (:nom, :id_genre, :location, :description, :photo, :reseaux_sociaux, :decouverte, :cdc)";
+                $sql = "INSERT INTO artistes (nom, id_genre, location, description, photo, photo2, reseaux_sociaux, decouverte, cdc) VALUES (:nom, :id_genre, :location, :description, :photo, :photo2, :reseaux_sociaux, :decouverte, :cdc)";
             } elseif ($type === 'decouverte') {
                 $sql = "INSERT INTO decouvertes (nom, id_genre, location) VALUES (:nom, :id_genre, :location)";
             } elseif ($type === 'concert') {
@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':location' => $_POST['location'] ?? '',
                 ':description' => $_POST['description'] ?? '',
                 ':photo' => $_POST['photo'] ?? '',
+                ':photo2' => $_POST['photo2'] ?? '',
                 ':reseaux_sociaux' => $_POST['reseaux_sociaux'] ?? '',
                 ':decouverte' => isset($_POST['decouverte']) ? 1 : 0,
                 ':cdc' => isset($_POST['cdc']) ? 1 : 0,
@@ -133,6 +134,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             preview.style.display = 'none';
         }
     }
+
+    function previewImage2() {
+    var select = document.getElementById("photo2");
+    var preview = document.getElementById("imagePreview2");
+    var selectedOption = select.options[select.selectedIndex].value;
+
+    var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
+    if (selectedOption) {
+        preview.src = basePath + selectedOption;
+        preview.style.display = 'block';
+    } else {
+        preview.style.display = 'none';
+    }
+}
 </script>
 </head>
 <body>
@@ -162,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="description">Description:</label>
             <textarea id="description" name="description"></textarea>
 
-            <label for="photo">Photo:</label>
+            <label for="photo">Photo pour index:</label>
             <select id="photo" name="photo" onchange="previewImage()">
                 <option value="">Sélectionner une photo</option>
                 <?php
@@ -175,9 +190,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
             </select>
-
-            <!-- Image de prévisualisation -->
             <img id="imagePreview" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image">
+
+            <label for="photo2">Photo pour artistes:</label>
+<select id="photo2" name="photo2" onchange="previewImage2()">
+    <option value="">Sélectionner une photo</option>
+    <?php foreach ($photos as $photo): ?>
+        <option value="<?php echo htmlspecialchars(basename($photo)); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
+    <?php endforeach; ?>
+</select>
+<img id="imagePreview2" class="image-preview" src="" alt="Aperçu de la deuxième image">
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" id="reseaux_sociaux" name="reseaux_sociaux">

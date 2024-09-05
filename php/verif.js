@@ -23,3 +23,12 @@ function validateForm() {
     
     return true;
 }
+
+function validateForm() {
+    var nom_artiste = document.getElementById('nom_artiste').value;
+    if (nom_artiste.length < 3 || nom_artiste.length > 255) {
+        alert('Le nom de l\'artiste doit avoir entre 3 et 255 caractères.');
+        return false;
+    }
+    return true;
+}

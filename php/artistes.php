@@ -17,7 +17,7 @@ if ($artiste_id <= 0) {
 
 // Préparer la requête SQL pour récupérer les détails de l'artiste avec son genre
 $sql = "
-    SELECT a.nom, a.description, a.photo, a.location, a.reseaux_sociaux, g.categorie, g.genre 
+    SELECT a.nom, a.description, a.photo2, a.location, a.reseaux_sociaux, g.categorie, g.genre 
     FROM artistes a
     JOIN genres g ON a.id_genre = g.id_genre
     WHERE a.id_artiste = :id_artiste
@@ -85,7 +85,7 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
     <main>
         <section id="artiste-details">
             <? 
-            $photoPath = "../images/artistes/" . htmlspecialchars($artiste['photo']);
+            $photoPath = "../images/artistes/" . htmlspecialchars($artiste['photo2']);
             ?>
             <img src="<?php echo $photoPath; ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
             <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>

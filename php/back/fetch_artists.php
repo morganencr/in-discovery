@@ -19,8 +19,9 @@ try {
             $nom = isset($row["nom"]) ? htmlspecialchars($row["nom"]) : 'Non spécifié';
             $genre = isset($row["genre_name"]) ? htmlspecialchars($row["genre_name"]) : 'Non spécifié';
             $location = isset($row["location"]) ? htmlspecialchars($row["location"]) : 'Non spécifié';
-            $description = isset($row["description"]) ? htmlspecialchars($row["description"]) : 'Non spécifié';
             $photo = isset($row["photo"]) ? '../images/artistes/' . htmlspecialchars($row["photo"]) : 'images/default.jpg';
+            $photo2 = isset($row["photo2"]) ? '../images/artistes/' . htmlspecialchars($row["photo2"]) : 'images/default.jpg';
+            $description = isset($row["description"]) ? htmlspecialchars($row["description"]) : 'Non spécifié';
             $reseaux_sociaux = isset($row["reseaux_sociaux"]) ? htmlspecialchars($row["reseaux_sociaux"]) : 'Non spécifié';
             $decouverte = isset($row["decouverte"]) && $row["decouverte"] ? 'Oui' : 'Non';
             $cdc = isset($row["cdc"]) && $row["cdc"] ? 'Oui' : 'Non';
@@ -30,6 +31,7 @@ try {
                     <td>{$genre}</td>
                     <td>{$location}</td>
                     <td><img src='{$photo}' alt='Photo de l\'artiste' style='width: 100px; height: auto;'></td>
+                    <td><img src='{$photo2}' alt='Photo de l\'artiste' style='width: 100px; height: auto;'></td>
                     <td>{$description}</td>
                     <td>{$reseaux_sociaux}</td>
                     <td>{$decouverte}</td>

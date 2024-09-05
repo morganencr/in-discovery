@@ -7,7 +7,11 @@
 </head>
 <body>
     <!-- Conteneur principal -->
-    <div id="admin-interface">
+        <div id="admin-interface">
+            <section id="section-suggestions">
+            <h2>Suggestions</h2>
+            <button onclick="window.location.href='view_suggestions.php'">Voir les Suggestions</button>
+        </section>
         <!-- Section Artistes -->
         <section id="section-artistes">
             <h2>Tous les Artistes/Groupes</h2>
@@ -18,7 +22,8 @@
                         <th>Nom</th>
                         <th>Genre</th>
                         <th>Lieu</th>
-                        <th>Photo</th>
+                        <th>Photo pour index</th>
+                        <th>Photo pour Artistes</th>
                         <th>Description</th>
                         <th>Réseaux sociaux</th>
                         <th>Découverte</th>

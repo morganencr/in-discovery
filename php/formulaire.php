@@ -2,51 +2,8 @@
 session_start();
 include 'connect.php';
 
-// Traitement du formulaire
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // récupération et nettoyage des données
-    $nom_artiste = htmlspecialchars(trim($_POST['nom_artiste']));
-    $lien_titre = filter_input(INPUT_POST, 'lien_titre', FILTER_SANITIZE_URL);
-    $message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : ''; // Champ message non obligatoire
-    $date_suggestion = date('Y-m-d');
-
-    $errors = [];
-
-    // validation du nom de l'artiste
-    if (strlen($nom_artiste) < 3 || strlen($nom_artiste) > 255) {
-        $errors[] = "Le nom de l'artiste doit avoir entre 3 et 255 caractères.";
-    }
-
-    // validation du lien vers le titre
-    if (!filter_var($lien_titre, FILTER_VALIDATE_URL)) {
-        $errors[] = "Le lien vers le titre doit être une URL valide.";
-    }
-
-    // validation du message (si non vide)
-    if ($message !== '' && (strlen($message) < 10 || strlen($message) > 2000)) {
-        $errors[] = "Le message doit avoir entre 10 et 2000 caractères.";
-    }
-
-    // gestion des messages de validation
-    if (!empty($errors)) {
-        $_SESSION['errors'] = $errors;
-        header("Location: formulaire.php"); // Redirection pour éviter la ré-soumission
-        exit();
-    } else {
-        try {
-            $sql = "INSERT INTO suggestions (nom_artiste, lien_titre, message, date_suggestion) VALUES (?, ?, ?, ?)";
-            $stmt = $db->prepare($sql);
-            $stmt->execute([$nom_artiste, $lien_titre, $message, $date_suggestion]);
-
-            $_SESSION['success'] = "Votre suggestion a été enregistrée avec succès.";
-            header("Location: formulaire.php"); // Redirection pour éviter la ré-soumission
-            exit();
-        } catch (PDOException $e) {
-            $_SESSION['errors'] = ["Erreur : " . $e->getMessage()];
-            header("Location: formulaire.php"); // Redirection pour éviter la ré-soumission
-            exit();
-        }
-    }
+if (!$db) {
+    die("Échec de la connexion à la base de données.");
 }
 ?>
 
@@ -102,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main>
     <div class="form-container">
         <h2>:SUGGESTIONS.</h2>
-        <form action="formulaire.php" method="POST" onsubmit="return validateForm()">
+        <form action="back/save_suggestion.php" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="nom_artiste">Nom du/des artiste(s)</label>
                 <input type="text" id="nom_artiste" name="nom_artiste" required minlength="3" maxlength="255">
