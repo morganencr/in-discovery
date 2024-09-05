@@ -104,7 +104,7 @@ try {
             <?php foreach ($punkRockArtists as $artist): ?>
                 <div class="artiste">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
-                        <img src="<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
+                    <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
                         <h2><?php echo htmlspecialchars($artist["nom"]); ?></h2>
                     </a>
                     <p><?php echo htmlspecialchars($artist["location"]); ?></p>
@@ -124,7 +124,7 @@ try {
             <?php foreach ($metalHardcoreArtists as $artist): ?>
                 <div class="artiste">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
-                        <img src="<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
+                    <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
                         <h2><?php echo htmlspecialchars($artist["nom"]); ?></h2>
                     </a>
                     <p><?php echo htmlspecialchars($artist["location"]); ?></p>

@@ -57,6 +57,9 @@ if ($type === 'concert') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
+    // Récupération de la photo
+    $photo = $_POST['photo'] ?? '';
+
     if ($action === 'add') {
         try {
             if ($type === 'artiste') {

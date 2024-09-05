@@ -90,8 +90,9 @@ require_once("connect.php");
                     if ($stmt->rowCount() > 0) {
                         // Afficher les données pour chaque artiste
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            $photoPath = "../images/artistes/" . htmlspecialchars($row['photo']);
                             echo "<div class='artist'>
-                                    <img src='" . htmlspecialchars($row['photo']) . "' alt='" . htmlspecialchars($row['nom']) . "'>
+                                    <img src='" . $photoPath . "' alt='" . htmlspecialchars($row['nom']) . "'>
                                     <div class='caption'>
                                         <h3>" . htmlspecialchars($row['nom']) . "</h3>
                                         <div class='description'>
@@ -127,9 +128,10 @@ require_once("connect.php");
                     if ($stmt2->rowCount() > 0) {
                         // Afficher les données pour chaque artiste
                         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+                            $photoPath = "../images/artistes/" . htmlspecialchars($row2['photo']);
                             echo "<div class='artist'>
                                     <a href='artistes.php?id=" . htmlspecialchars($row2['id_artiste']) . "'>
-                                        <img src='" . htmlspecialchars($row2['photo']) . "' alt='" . htmlspecialchars($row2['nom']) . "'>
+                                        <img src='" . $photoPath . "' alt='" . htmlspecialchars($row2['nom']) . "'>
                                         <h3>" . htmlspecialchars($row2['nom']) . "</h3>
                                     </a>
                                   </div>";

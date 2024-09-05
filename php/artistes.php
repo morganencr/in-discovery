@@ -84,7 +84,10 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
     </header>
     <main>
         <section id="artiste-details">
-            <img src="<?php echo htmlspecialchars($artiste['photo']); ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
+            <? 
+            $photoPath = "../images/artistes/" . htmlspecialchars($artiste['photo']);
+            ?>
+            <img src="<?php echo $photoPath; ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
             <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>
             <p><?php echo htmlspecialchars($artiste['genre']); ?></p>
             <p><?php echo htmlspecialchars($artiste['location']); ?></p>
