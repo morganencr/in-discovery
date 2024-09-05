@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestion de la Base de Données</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="gestion.css">
 </head>
 <body>
     <!-- Conteneur principal -->
         <div id="admin-interface">
-            <section id="section-suggestions">
-            <h2>Suggestions</h2>
-            <button onclick="window.location.href='view_suggestions.php'">Voir les Suggestions</button>
-        </section>
+            <h1>Interface de gestion</h1>
         <!-- Section Artistes -->
         <section id="section-artistes">
             <h2>Tous les Artistes/Groupes</h2>
@@ -54,6 +52,10 @@
                     <?php include 'fetch_concerts.php'; ?>
                 </tbody>
             </table>
+        </section>
+        <section id="section-suggestions">
+            <h2>Suggestions</h2>
+            <button onclick="window.location.href='view_suggestions.php'">Voir les Suggestions</button>
         </section>
     </div>
 

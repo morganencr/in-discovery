@@ -118,8 +118,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="add.css">
     <title>Ajouter un élément</title>
-    <link rel="stylesheet" href="style.css">
     <script>
     function previewImage() {
         var select = document.getElementById("photo");
@@ -190,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
             </select>
-            <img id="imagePreview" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image">
+            <img id="imagePreview" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo']); ?>">
 
             <label for="photo2">Photo pour artistes:</label>
 <select id="photo2" name="photo2" onchange="previewImage2()">
@@ -199,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <option value="<?php echo htmlspecialchars(basename($photo)); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
     <?php endforeach; ?>
 </select>
-<img id="imagePreview2" class="image-preview" src="" alt="Aperçu de la deuxième image">
+<img id="imagePreview2" class="image-preview" src="">
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" id="reseaux_sociaux" name="reseaux_sociaux">
@@ -227,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
 
             <!-- Image de prévisualisation -->
-            <img id="imagePreview" class="image-preview" src="../images/next/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image">
+            <img id="imagePreview" class="image-preview" src="../images/next/<?php echo htmlspecialchars($data['photo']); ?>">
 
             <label for="groupe">Groupe:</label>
             <input type="text" id="groupe" name="groupe" required>
@@ -239,5 +240,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Ajouter</button>
         <button type="button" onclick="window.history.back()">Annuler</button>
     </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

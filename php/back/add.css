@@ -1,0 +1,141 @@
+body {
+    background-color: rgb(22, 22, 22); 
+    color: #f8f9fa;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height:100vh;
+}
+
+h1 {
+    margin: 20px;
+    color: #f8f9fa;
+}
+
+form {
+    background-color: #333; 
+    padding: 20px;
+    border-radius: 8px;
+    display:flex;
+    flex-direction: column;
+    width:30%;
+    align-items:center;
+    justify-content: space-around;
+}
+
+.form-control {
+    background-color: #444; 
+    color: #f8f9fa; 
+    border: 1px solid #555; 
+}
+
+.form-control:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); 
+}
+
+/* Masquer les éléments par défaut */
+input[type=checkbox],
+input[type=radio] {
+    appearance: none; 
+    -webkit-appearance: none; 
+    background-color: #444; 
+    border: 1px solid #555; 
+    border-radius: 4px; 
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer; 
+    position: relative; 
+    display: inline-block; 
+}
+
+
+input[type=checkbox]:checked,
+input[type=radio]:checked {
+    background-color: #6a11cb; 
+    border-color: #6a11cb; 
+}
+
+input[type=checkbox]:checked::before,
+input[type=radio]:checked::before {
+    content: '';
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 10px; 
+    height: 10px; 
+    background-color: white; 
+    border-radius: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+/* Style pour les cases à cocher et les boutons radio au focus */
+input[type=checkbox]:focus,
+input[type=radio]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); 
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+select {
+    border: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+
+/* Style pour le label pour une meilleure apparence */
+label {
+    display: inline-flex; 
+    align-items: center; 
+    padding:5px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    margin:20px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-preview {
+    max-width: 100% ; 
+    height: auto ; 
+    border: 2px solid #6a11cb ; 
+    border-radius: 8px ; 
+    margin-top: 10px ; 
+    display: block ; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) ; 
+}
