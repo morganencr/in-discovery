@@ -87,10 +87,12 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
             <? 
             $photoPath = "../images/artistes/" . htmlspecialchars($artiste['photo2']);
             ?>
+            <div id="photo-caption">
             <img src="<?php echo $photoPath; ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
             <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>
-            <p><?php echo htmlspecialchars($artiste['genre']); ?></p>
-            <p><?php echo htmlspecialchars($artiste['location']); ?></p>
+            <p><?php echo htmlspecialchars($artiste['genre']); ?>, <?php echo htmlspecialchars($artiste['location']); ?></p>
+            </div>
+            <div id="description-reseaux">
             <p><?php echo htmlspecialchars($artiste['description']); ?></p>
             <p>Où les trouver : 
         <?php if (!empty($artiste['reseaux_sociaux'])): ?>
@@ -98,6 +100,7 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php else: ?>
             Aucun lien Instagram disponible
         <?php endif; ?>
+            </div>
     </p>
         </section>
     </main>

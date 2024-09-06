@@ -95,19 +95,21 @@ try {
             </div>
         </div>
     </header>
-<main>
+<main id="main-decouvrez">
 <h2><span>:</span>DÉCOUVREZ<span>.</span></h2>
-<section class="category-container">
-    <article id="category-title"><h3>PUNK/ROCK</h3>
+<section class="category-container1">
+    <article><h3 id="category-title">PUNK/ROCK</h3>
     <figure class="artistes-list">
         <?php if (!empty($punkRockArtists)): ?>
             <?php foreach ($punkRockArtists as $artist): ?>
                 <div class="artiste">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
                     <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
-                        <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
                     </a>
+                    <div class="caption1">
+                    <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
                     <p><?php echo htmlspecialchars($artist["location"]); ?></p>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -117,17 +119,19 @@ try {
     </article>
 </section>
 
-<section class="category-container">
-    <article id="category-title"><h3>METAL/HARDCORE</h3>
+<section class="category-container2">
+    <article><h3 id="category-title" style="display:flex; justify-content: flex-end;">METAL/HARDCORE</h3>
     <figure class="artistes-list">
         <?php if (!empty($metalHardcoreArtists)): ?>
             <?php foreach ($metalHardcoreArtists as $artist): ?>
                 <div class="artiste">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
                     <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
-                        <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
                     </a>
+                    <div class="caption2">
+                    <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
                     <p><?php echo htmlspecialchars($artist["location"]); ?></p>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

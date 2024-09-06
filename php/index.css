@@ -28,6 +28,14 @@ main {
     flex-grow: 1;
 }
 
+.caption h3 {
+    color:#844865;
+}
+
+.caption a {
+    color:#844865;
+}
+
 .nav-links {
     display: flex; 
     width: 100%;
@@ -90,14 +98,12 @@ main {
     transform: translateY(-20px); 
     transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease; 
     overflow: hidden;
-    visibility: hidden; 
     width: 45%;
 }
 
 .burger-menu-content.active {
     opacity: 1;
     transform: translateY(0);
-    visibility: visible;
     height: 30vh;
     width: 330px;
 }

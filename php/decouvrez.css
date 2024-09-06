@@ -2,9 +2,9 @@ span {
     color: #844865;
 }
 
-main {
+#main-decouvrez {
     margin-top: 60px;
-    padding: 0 20px;
+    padding: 0px 40px 40px 40px;
 }
 
 h2 {
@@ -17,6 +17,14 @@ h3 {
     font-weight: 500;
 }
 
+.artiste {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
 .artiste #artistes{
     color: unset;
 }
@@ -24,10 +32,10 @@ h3 {
 .artiste img {
     width: 100%;
     height: auto;
-    max-width: 300px;
-    min-width: 300px;
-    max-height: 300px;
-    object-fit: cover;
+    max-width: 250px; 
+    max-height: 250px;
+    min-width:250px;
+    object-fit: cover; 
     
 }
 
@@ -37,16 +45,50 @@ h3 {
     align-items: center;
 }
 
-.artistes-list {
+.category-container1 {
+    margin-top: 50px;
+}
+
+.category-container1 .artistes-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.caption1 {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category-container2 {
+    margin-top: 50px;
+}
+
+.category-container2 .artistes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
+    margin-top: 30px;
+}
+
+.caption2 {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
     .artiste img {
-        width: 80%;  /* Réduit légèrement la taille de l'image pour les écrans de taille moyenne */
+        width: 100%;
+        height: 320px;
+        max-width: 320px; 
+        max-height: 320px;
+        min-width:320px;
+        object-fit: cover; 
     }
 
     .artistes-list {
@@ -59,7 +101,12 @@ h3 {
 /* Styles pour les écrans larges (bureau) */
 @media (min-width: 1024px) {
     .artiste img {
-        width: 45%;  /* Les images prennent moins de place sur les grands écrans */
+        width: 100%;
+        height: 450px;
+        max-width: 450px; 
+        max-height: 450px;
+        min-width:450px;
+        object-fit: cover;   
     }
 
     .artistes-list {
