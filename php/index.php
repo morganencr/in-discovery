@@ -132,7 +132,7 @@ require_once("connect.php");
                             echo "<div class='artist'>
                                     <a href='artistes.php?id=" . htmlspecialchars($row2['id_artiste']) . "'>
                                         <img src='" . $photoPath . "' alt='" . htmlspecialchars($row2['nom']) . "'>
-                                        <h3>" . htmlspecialchars($row2['nom']) . "</h3>
+                                        <h3 class='groupes-decouverte'>" . htmlspecialchars($row2['nom']) . "</h3>
                                     </a>
                                   </div>";
                         }

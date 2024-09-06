@@ -20,10 +20,11 @@ $suggestions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Suggestions</title>
-    <link rel="stylesheet" href="gestion.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="suggestions.css">
 </head>
 <body>
-    <h2>Suggestions Soumises</h2>
+    <h1>Suggestions Soumises</h1>
 
     <?php
     // Afficher les messages de succès ou d'erreur

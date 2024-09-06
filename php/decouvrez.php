@@ -91,21 +91,21 @@ try {
             </div>
             </div>
             <div class="img-deco">
-            <img src="images/punk-rock/muscle/muscle2.jpeg">
+            <img src="images/artistes/muscle2.jpeg">
             </div>
         </div>
     </header>
 <main>
-<h2>:DÉCOUVREZ.</h2>
+<h2><span>:</span>DÉCOUVREZ<span>.</span></h2>
 <section class="category-container">
-    <article class="category-title"><h2>Punk/Rock</h2>
+    <article id="category-title"><h3>PUNK/ROCK</h3>
     <figure class="artistes-list">
         <?php if (!empty($punkRockArtists)): ?>
             <?php foreach ($punkRockArtists as $artist): ?>
                 <div class="artiste">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
                     <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
-                        <h2><?php echo htmlspecialchars($artist["nom"]); ?></h2>
+                        <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
                     </a>
                     <p><?php echo htmlspecialchars($artist["location"]); ?></p>
                 </div>
@@ -118,14 +118,14 @@ try {
 </section>
 
 <section class="category-container">
-    <article class="category-title"><h2>Metal/Hardcore</h2>
+    <article id="category-title"><h3>METAL/HARDCORE</h3>
     <figure class="artistes-list">
         <?php if (!empty($metalHardcoreArtists)): ?>
             <?php foreach ($metalHardcoreArtists as $artist): ?>
                 <div class="artiste">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
                     <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
-                        <h2><?php echo htmlspecialchars($artist["nom"]); ?></h2>
+                        <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
                     </a>
                     <p><?php echo htmlspecialchars($artist["location"]); ?></p>
                 </div>
