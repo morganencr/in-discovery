@@ -47,18 +47,18 @@ require_once("connect.php");
             </div>
             </div>
             <div class="img-deco">
-            <img src="images/punk-rock/muscle/muscle2.jpeg">
+            <img src="images/artistes/muscle2.jpeg">
             </div>
         </div>
     </header>
 <body>
     <main>
         <section class="main-container">
-            <h2>:À PROPOS.</h2>
+            <h2><span>:</span>À PROPOS<span>.</span></h2>
             <article class="content">
                 <figure id="content-1">
-                    <h3>→ QUI SOMMES-NOUS ?</h3>
-                    <p>IN:DISCOVERY. est un concept né d'un mélange de créativité et d'envie de 
+                    <h3><img src="images/icones/arrow-right-long-solid.svg"> QUI SOMMES-NOUS ?</h3>
+                    <p><span class="website">IN:DISCOVERY.</span> est un concept né d'un mélange de créativité et d'envie de 
                         partager. À une époque où la consommation se veut rapide, simple et efficace,
                         il ne faut pas perdre de vue que derrière chaque produit consommé 
                         se cache un travail long et fastidieux. D'autant plus qu'aujourd'hui, avec les 
@@ -73,7 +73,7 @@ require_once("connect.php");
                     </p>
                 </figure>
                 <figure id="content-2">
-                    <h3>→ POURQUOI EST-CE UN PROJET QUI NOUS TIENT À COEUR ?</h3>
+                    <h3><img src="images/icones/arrow-right-long-solid.svg"> POURQUOI EST-CE UN PROJET QUI NOUS TIENT À COEUR ?</h3>
                     <p>Ce projet est aussi dans le fond un projet collaboratif avec vous, grâce à notre formulaire de 
                         suggestions par lequel vous pouvez nous envoyer vos propres découvertes. Nous ne tirons aucun bénéfices 
                         de ce site, à part celui de pouvoir partager et contribuer (peut-être) à l'acsension future de ces groupes.

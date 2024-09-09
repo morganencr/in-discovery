@@ -78,7 +78,7 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
             </div>
             <div class="img-deco">
-            <img src="images/punk-rock/muscle/muscle2.jpeg">
+            <img src="images/artistes/muscle2.jpeg">
             </div>
         </div>
     </header>
@@ -89,8 +89,10 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
             ?>
             <div id="photo-caption">
             <img src="<?php echo $photoPath; ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
+            <div class="caption">
             <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>
             <p><?php echo htmlspecialchars($artiste['genre']); ?>, <?php echo htmlspecialchars($artiste['location']); ?></p>
+            </div>
             </div>
             <div id="description-reseaux">
             <p><?php echo htmlspecialchars($artiste['description']); ?></p>

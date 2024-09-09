@@ -120,7 +120,7 @@ try {
 </section>
 
 <section class="category-container2">
-    <article><h3 id="category-title" style="display:flex; justify-content: flex-end;">METAL/HARDCORE</h3>
+    <article><h3 id="category-title">METAL/HARDCORE</h3>
     <figure class="artistes-list">
         <?php if (!empty($metalHardcoreArtists)): ?>
             <?php foreach ($metalHardcoreArtists as $artist): ?>

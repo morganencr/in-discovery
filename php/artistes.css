@@ -1,6 +1,4 @@
-.side-menu .img-deco {
-    opacity: 0;
-}
+
 
 section {
     display:flex;
@@ -22,6 +20,7 @@ section img {
 }
 
 h1 {
+    /* text-align:center; */
     margin-top: 15px;
 }
 
@@ -39,4 +38,44 @@ section #description-reseaux {
 
 #description-reseaux a:hover {
     color: #844865;
+}
+
+@media (min-width: 768px) {
+    #photo-caption {
+        width: 90%;
+        flex-direction: row;
+    }
+
+    section img {
+        max-width: 60%;
+    }
+
+    #photo-caption img {
+        margin-top:70px;
+    }
+
+    #photo-caption .caption {
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 30px;
+    }
+
+    section #description-reseaux {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1024px) {
+    section img {
+        max-width: 548px;
+    }
+
+    #photo-caption {
+        width:unset;
+    }
+
+    section #description-reseaux {
+        width: 60%;
+    }
 }

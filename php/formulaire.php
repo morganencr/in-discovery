@@ -52,13 +52,17 @@ if (!$db) {
             </div>
             </div>
             <div class="img-deco">
-            <img src="images/punk-rock/muscle/muscle2.jpeg">
+            <img src="images/artistes/muscle2.jpeg">
             </div>
         </div>
     </header>
     <main>
     <div class="form-container">
-        <h2>:SUGGESTIONS.</h2>
+        <h2><span>:</span>SUGGESTIONS<span>.</span></h2>
+        <div class="texte">
+        Vous pouvez envoyer ici vos suggestions musicales, qu’il s’agisse de groupes ou d’artistes 
+        indépendants de la scène underground.
+        </div>
         <form action="back/save_suggestion.php" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="nom_artiste">Nom du/des artiste(s)</label>

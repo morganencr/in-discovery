@@ -69,6 +69,10 @@ main {
     max-height: 28px;
 }
 
+.logo img:hover {
+    animation: neon-blink 0.8s infinite alternate;
+}
+
 /* Styles pour le menu burger */
 .burger-menu {
     display: block; 
@@ -98,7 +102,7 @@ main {
     transform: translateY(-20px); 
     transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease; 
     overflow: hidden;
-    width: 45%;
+    width: 330px;
 }
 
 .burger-menu-content.active {
@@ -240,6 +244,24 @@ ul {
     color: #844865;
 }
 
+/*ANIMATIONS*/
+
+@keyframes neon-blink {
+    0%, 100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) 
+                drop-shadow(0 0 15px rgba(116, 58, 86, 0.5)) 
+                drop-shadow(0 0 20px rgba(165, 104, 133, 0.8)); 
+    }
+    50% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4)) 
+                drop-shadow(0 0 7px rgba(0, 153, 255, 0.3)) 
+                drop-shadow(0 0 10px rgba(0, 153, 255, 0.6));
+    }
+}
+
+
 /*FOOTER*/
 
 footer {
@@ -256,6 +278,10 @@ footer {
 
 .section-logo img {
     width: 284px;
+}
+
+.section-logo img:hover{
+    animation: neon-blink 0.8s infinite alternate;
 }
 
 .logos img {

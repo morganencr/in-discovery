@@ -56,18 +56,24 @@ try {
             </div>
             </div>
             <div class="img-deco">
-            <img src="images/punk-rock/muscle/muscle2.jpeg">
+            <img src="images/artistes/muscle2.jpeg">
             </div>
         </div>
     </header>
     <main>
-    <section class="concerts-container">
-    <h1>:PROCHAINS. CONCERTS</h1>
+    <section class="main-container">
+    <h1><span>:</span>PROCHAINS<span>.</span> CONCERTS</h1>
+    <article class="concerts-container">
             <?php foreach ($concerts as $concert): ?>
+                <figure class="img-caption">
                     <td><img src="images/next/<?php echo htmlspecialchars($concert['photo']); ?>" alt="<?php echo htmlspecialchars($concert['groupe']); ?>" width="100"></td>
                     <td><?php echo htmlspecialchars($concert['groupe']); ?></td>
+                    <div class="lieu">
                     <td><?php echo htmlspecialchars($concert['lieux']); ?></td>
+                    </div>
+                </figure>
             <?php endforeach; ?>
+    </article>
     </section>
     </main>
     <footer>
