@@ -47,7 +47,10 @@ require_once("connect.php");
             </div>
             </div>
             <div class="img-deco">
-            <img src="images/artistes/muscle2.jpeg">
+                <img src="images/artistes/muscle2.jpeg" class="carousel-slide">
+                <img src="images/artistes/foxholecarousel.jpeg" class="carousel-slide">
+                <img src="images/artistes/pathfindercarousel.jpg" class="carousel-slide">
+                <img src="images/artistes/ivelearnedcarousel.jpg" class="carousel-slide">
             </div>
         </div>
     </header>
@@ -97,5 +100,6 @@ require_once("connect.php");
     </footer>
     <script src="burger.js"></script>
     <script src="dots.js"></script>
+    <script src="carousel.js"></script>
 </body>
 </html>

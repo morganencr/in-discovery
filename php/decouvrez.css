@@ -4,7 +4,7 @@ span {
 
 #main-decouvrez {
     margin-top: 60px;
-    padding: 0px 40px 60px 40px;
+    padding: 0px 40px 80px 40px;
 }
 
 h2 {
@@ -18,15 +18,21 @@ h3 {
 }
 
 .artiste {
-    display:flex;
+    position: relative; 
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
+    overflow:hidden;
 }
 
 .artiste #artistes{
     color: unset;
+}
+
+.artiste-img {
+    overflow: hidden;
 }
 
 .artiste img {
@@ -36,14 +42,41 @@ h3 {
     max-height: 250px;
     min-width:250px;
     min-height: 250px;
-    object-fit: cover; 
-    
+    object-fit: cover;
+}
+
+.artiste a:hover {
+    transform: scale(1.1);
 }
 
 .artiste a {
     display:flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.artiste .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight:5;
+    opacity: 0; 
+    transition: opacity 0.5s ease;
+
+}
+
+.artiste a:hover .overlay{
+    opacity: 1;
 }
 
 .category-container1 {
@@ -55,12 +88,6 @@ h3 {
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 30px;
-}
-
-.caption1 {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .category-container2 {
@@ -75,10 +102,11 @@ h3 {
     margin-top: 30px;
 }
 
-.caption2 {
+.caption1 .caption2 {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {

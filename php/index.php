@@ -66,7 +66,10 @@ require_once("connect.php");
                 </div>
             </div>
             <div class="img-deco">
-                <img src="images/artistes/muscle2.jpeg">
+                <img src="images/artistes/muscle2.jpeg" class="carousel-slide">
+                <img src="images/artistes/foxholecarousel.jpeg" class="carousel-slide">
+                <img src="images/artistes/pathfindercarousel.jpg" class="carousel-slide">
+                <img src="images/artistes/ivelearnedcarousel.jpg" class="carousel-slide">
             </div>
         </div>
     </header>
@@ -130,10 +133,12 @@ require_once("connect.php");
                         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             $photoPath = "../images/artistes/" . htmlspecialchars($row2['photo']);
                             echo "<div class='artist'>
+                                    <div class='image-container'>
                                     <a href='artistes.php?id=" . htmlspecialchars($row2['id_artiste']) . "'>
                                         <img src='" . $photoPath . "' alt='" . htmlspecialchars($row2['nom']) . "'>
-                                        <h3 class='groupes-decouverte'>" . htmlspecialchars($row2['nom']) . "</h3>
                                     </a>
+                                    </div>
+                                    <h3 class='groupes-decouverte'>" . htmlspecialchars($row2['nom']) . "</h3>
                                   </div>";
                         }
                     } else {
@@ -163,6 +168,7 @@ require_once("connect.php");
     <!-- JavaScript Files -->
     <script src="burger.js"></script>
     <script src="dots.js"></script>
+    <script src="carousel.js"></script>
 </body>
 
 </html>

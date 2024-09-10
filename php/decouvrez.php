@@ -91,7 +91,10 @@ try {
             </div>
             </div>
             <div class="img-deco">
-            <img src="images/artistes/muscle2.jpeg">
+                <img src="images/artistes/muscle2.jpeg" class="carousel-slide">
+                <img src="images/artistes/foxholecarousel.jpeg" class="carousel-slide">
+                <img src="images/artistes/pathfindercarousel.jpg" class="carousel-slide">
+                <img src="images/artistes/ivelearnedcarousel.jpg" class="carousel-slide">
             </div>
         </div>
     </header>
@@ -103,12 +106,15 @@ try {
         <?php if (!empty($punkRockArtists)): ?>
             <?php foreach ($punkRockArtists as $artist): ?>
                 <div class="artiste">
+                    <div class="artiste-img">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
-                    <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
+                        <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
+                        <div class="overlay">VOIR LA PAGE</div>
                     </a>
+                    </div>
                     <div class="caption1">
-                    <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
-                    <p><?php echo htmlspecialchars($artist["location"]); ?></p>
+                        <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
+                        <p><?php echo htmlspecialchars($artist["location"]); ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -125,9 +131,12 @@ try {
         <?php if (!empty($metalHardcoreArtists)): ?>
             <?php foreach ($metalHardcoreArtists as $artist): ?>
                 <div class="artiste">
+                    <div class="artiste-img">
                     <a href="artistes.php?id=<?php echo htmlspecialchars($artist['id_artiste']); ?>">
                     <img src="../images/artistes/<?php echo htmlspecialchars($artist["photo"]); ?>" alt="<?php echo htmlspecialchars($artist["nom"]); ?>">
+                    <div class="overlay">VOIR LA PAGE</div>
                     </a>
+                    </div>
                     <div class="caption2">
                     <h3 id="artistes"><?php echo htmlspecialchars($artist["nom"]); ?></h3>
                     <p><?php echo htmlspecialchars($artist["location"]); ?></p>
@@ -156,5 +165,6 @@ try {
 </footer>
 <script src="burger.js"></script>
 <script src="dots.js"></script>
+<script src="carousel.js"></script>
 </body>
 </html>
