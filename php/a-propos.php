@@ -66,7 +66,7 @@ require_once("connect.php");
                         il ne faut pas perdre de vue que derrière chaque produit consommé 
                         se cache un travail long et fastidieux. D'autant plus qu'aujourd'hui, avec les 
                         écarts sociaux qui se creusent au sein de notre société, il est important de mettre 
-                        en lumière l'art des artistes au statu social-professionnel toujours aussi 
+                        en lumière l'art des artistes au statu socio-professionnel toujours aussi 
                         précaire. Ce sont de ces artistes-là dont nous avions envie de porter le message, à large échelle,
                         pour qu'à leur tour ils puissent toucher un plus grand monde avec leur plume.
                         <br>
@@ -77,8 +77,8 @@ require_once("connect.php");
                 </figure>
                 <figure id="content-2">
                     <h3><img src="images/icones/arrow-right-long-solid.svg"> POURQUOI EST-CE UN PROJET QUI NOUS TIENT À COEUR ?</h3>
-                    <p>Ce projet est aussi dans le fond un projet collaboratif avec vous, grâce à notre formulaire de 
-                        suggestions par lequel vous pouvez nous envoyer vos propres découvertes. Nous ne tirons aucun bénéfices 
+                    <p>Ce projet est aussi dans le fond un projet collaboratif grâce à notre formulaire de 
+                        suggestions par lequel vous pouvez nous envoyer vos propres découvertes. Nous ne tirons aucun bénéfice 
                         de ce site, à part celui de pouvoir partager et contribuer (peut-être) à l'acsension future de ces groupes.
                     </p>
                 </figure>
@@ -101,5 +101,6 @@ require_once("connect.php");
     <script src="burger.js"></script>
     <script src="dots.js"></script>
     <script src="carousel.js"></script>
+    <script src="animation.js"></script>
 </body>
 </html>
