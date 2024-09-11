@@ -15,6 +15,7 @@ h3 {
     color:#844865;
     font-size: 1.3rem;
     font-weight: 500;
+    margin-bottom: 30px;
 }
 
 .artiste {
@@ -24,10 +25,12 @@ h3 {
     align-items: center;
     text-align: center;
     gap: 10px;
+    margin-bottom: 40px;
 }
 
 .artiste #artistes{
     color: unset;
+    margin: 0;
 }
 
 .artiste-img {
@@ -134,8 +137,8 @@ h3 {
 }
 
 ::-webkit-scrollbar-button {
-    background-color: transparent; /* Masquer les boutons de défilement (flèches) */
-    display: none; /* Ne pas afficher les boutons de défilement */
+    background-color: transparent; 
+    display: none; 
 }
 
 /* Styles Firefox */
@@ -146,6 +149,7 @@ html {
 body {
     scrollbar-color: #844865 transparent;
 }
+
 
 @media (min-width: 768px) {
     .artiste img {
