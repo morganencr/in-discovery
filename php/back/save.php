@@ -20,12 +20,13 @@ try {
         $photo = isset($_POST['photo']) ? $_POST['photo'] : null;
         $photo2 = isset($_POST['photo2']) ? $_POST['photo2'] : null;
         $reseaux_sociaux = isset($_POST['reseaux_sociaux']) ? $_POST['reseaux_sociaux'] : null;
+        $audio_url = isset($_POST['audio_url']) ? $_POST['audio_url'] : null;
         $decouverte = isset($_POST['decouverte']) ? 1 : 0;
         $cdc = isset($_POST['cdc']) ? 1 : 0;
         $id = intval($_POST['id']);
 
         if ($id) {
-            $stmt = $db->prepare("UPDATE artistes SET nom = :nom, id_genre = :id_genre, location = :location, description = :description, photo = :photo, photo2 = :photo2, reseaux_sociaux = :reseaux_sociaux, decouverte = :decouverte, cdc = :cdc WHERE id_artiste = :id");
+            $stmt = $db->prepare("UPDATE artistes SET nom = :nom, id_genre = :id_genre, location = :location, description = :description, photo = :photo, photo2 = :photo2, reseaux_sociaux = :reseaux_sociaux, audio_url = :audio_url, decouverte = :decouverte, cdc = :cdc WHERE id_artiste = :id");
             $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
             $stmt->bindParam(':id_genre', $id_genre, PDO::PARAM_INT);
             $stmt->bindParam(':location', $location, PDO::PARAM_STR);
@@ -33,12 +34,13 @@ try {
             $stmt->bindParam(':photo', $photo, PDO::PARAM_STR);
             $stmt->bindParam(':photo2', $photo2, PDO::PARAM_STR);
             $stmt->bindParam(':reseaux_sociaux', $reseaux_sociaux, PDO::PARAM_STR);
+            $stmt->bindParam(':audio_url', $audio_url, PDO::PARAM_STR);
             $stmt->bindParam(':decouverte', $decouverte, PDO::PARAM_INT);
             $stmt->bindParam(':cdc', $cdc, PDO::PARAM_INT);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
         } else {
-            $stmt = $db->prepare("INSERT INTO artistes (nom, id_genre, location, description, photo, photo2, reseaux_sociaux, decouverte, cdc) VALUES (:nom, :id_genre, :location, :description, :photo, :photo2, :reseaux_sociaux, :decouverte, :cdc)");
+            $stmt = $db->prepare("INSERT INTO artistes (nom, id_genre, location, description, photo, photo2, reseaux_sociaux, audio_url, decouverte, cdc) VALUES (:nom, :id_genre, :location, :description, :photo, :photo2, :reseaux_sociaux, :audio_url, :decouverte, :cdc)");
             $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
             $stmt->bindParam(':id_genre', $id_genre, PDO::PARAM_INT);
             $stmt->bindParam(':location', $location, PDO::PARAM_STR);
@@ -46,6 +48,7 @@ try {
             $stmt->bindParam(':photo', $photo, PDO::PARAM_STR);
             $stmt->bindParam(':photo2', $photo2, PDO::PARAM_STR);
             $stmt->bindParam(':reseaux_sociaux', $reseaux_sociaux, PDO::PARAM_STR);
+            $stmt->bindParam(':audio_url', $audio_url, PDO::PARAM_STR);
             $stmt->bindParam(':decouverte', $decouverte, PDO::PARAM_INT);
             $stmt->bindParam(':cdc', $cdc, PDO::PARAM_INT);
             $stmt->execute();

@@ -17,7 +17,7 @@ if ($artiste_id <= 0) {
 
 // Préparer la requête SQL pour récupérer les détails de l'artiste avec son genre
 $sql = "
-    SELECT a.nom, a.description, a.photo2, a.location, a.reseaux_sociaux, g.categorie, g.genre 
+    SELECT a.nom, a.description, a.photo2, a.location, a.reseaux_sociaux, a.audio_url, g.categorie, g.genre 
     FROM artistes a
     JOIN genres g ON a.id_genre = g.id_genre
     WHERE a.id_artiste = :id_artiste
@@ -105,8 +105,14 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php else: ?>
             Aucun lien Instagram disponible
         <?php endif; ?>
+            </p>
+
+            <?php if (!empty($artiste['audio_url'])): ?>
+                 <div class="spotify-embed">
+                    <iframe src="<?php echo htmlspecialchars($artiste['audio_url']); ?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            <?php endif; ?>
             </div>
-    </p>
         </section>
     </main>
     <footer>

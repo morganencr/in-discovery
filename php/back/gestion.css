@@ -1,12 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 #admin-interface {
     background-color: rgb(22, 22, 22); 
     color: #f8f9fa; 
     padding: 20px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+#section-artistes {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+#section-concerts {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#section-suggestions {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 #artists-table, #concerts-table {
     margin-top: 20px;
     color: white;
+    width: 70%;
+    overflow-x: auto;
+    table-layout: fixed;
 }
 
 #admin-interface h1{
@@ -18,15 +46,25 @@
     margin-top: 20px;
 }
 
+#artists-table td {
+    max-height: 100px; 
+    overflow: hidden;
+    vertical-align: middle;
+    text-align:center;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
+    box-sizing: border-box;
+    table-layout: fixed;
 }
 
 th, td {
     padding: 10px;
     border: 1px solid #dee2e6;
     text-align: left;
+    word-wrap: break-word;
 }
 
 th {
@@ -36,7 +74,8 @@ th {
 
 td {
     background-color: #444; 
-    color: #f8f9fa; 
+    color: #f8f9fa;
+    overflow: hidden;
 }
 
 button {
@@ -53,6 +92,7 @@ button {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 button:hover {

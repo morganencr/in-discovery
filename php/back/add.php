@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'add') {
         try {
             if ($type === 'artiste') {
-                $sql = "INSERT INTO artistes (nom, id_genre, location, description, photo, photo2, reseaux_sociaux, decouverte, cdc) VALUES (:nom, :id_genre, :location, :description, :photo, :photo2, :reseaux_sociaux, :decouverte, :cdc)";
+                $sql = "INSERT INTO artistes (nom, id_genre, location, description, photo, photo2, reseaux_sociaux, audio_url, decouverte, cdc) VALUES (:nom, :id_genre, :location, :description, :photo, :photo2, :reseaux_sociaux, :audio_url, :decouverte, :cdc)";
             } elseif ($type === 'decouverte') {
                 $sql = "INSERT INTO decouvertes (nom, id_genre, location) VALUES (:nom, :id_genre, :location)";
             } elseif ($type === 'concert') {
@@ -81,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':photo' => $_POST['photo'] ?? '',
                 ':photo2' => $_POST['photo2'] ?? '',
                 ':reseaux_sociaux' => $_POST['reseaux_sociaux'] ?? '',
+                ':audio_url' => $_POST['audio_url'] ?? '',
                 ':decouverte' => isset($_POST['decouverte']) ? 1 : 0,
                 ':cdc' => isset($_POST['cdc']) ? 1 : 0,
                 ':groupe' => $_POST['groupe'] ?? '',
@@ -204,6 +205,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" id="reseaux_sociaux" name="reseaux_sociaux">
+
+            <label for="audio_url">URL Audio:</label>
+            <input type="text" id="audio_url" name="audio_url">
 
             <label for="decouverte">Découverte:</label>
             <input type="checkbox" id="decouverte" name="decouverte">

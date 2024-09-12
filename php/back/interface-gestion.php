@@ -18,14 +18,6 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Genre</th>
-                        <th>Lieu</th>
-                        <th>Photo pour index</th>
-                        <th>Photo pour Artistes</th>
-                        <th>Description</th>
-                        <th>Réseaux sociaux</th>
-                        <th>Découverte</th>
-                        <th>Coup de Coeur</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -86,6 +78,9 @@
 
                 <label for="reseaux_sociaux">Réseaux Sociaux:</label>
                 <input type="text" id="reseaux_sociaux" name="reseaux_sociaux">
+
+                <label for="audio_url">Audio URL:</label>
+                <input type="text" id="audio_url" name="audio_url">
 
                 <label for="decouverte">Découverte:</label>
                 <input type="checkbox" id="decouverte" name="decouverte">

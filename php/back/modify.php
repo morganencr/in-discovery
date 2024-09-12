@@ -181,6 +181,9 @@ document.addEventListener("DOMContentLoaded", function() {
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" name="reseaux_sociaux" value="<?php echo htmlspecialchars($data['reseaux_sociaux']); ?>"><br>
 
+            <label for="audio_url">URL de l'audio:</label>
+            <input type="text" name="audio_url" value="<?php echo htmlspecialchars($data['audio_url']); ?>"><br>
+
             <label for="decouverte">Découverte:</label>
             <input type="checkbox" name="decouverte" <?php echo ($data['decouverte']) ? 'checked' : ''; ?>><br>
 
