@@ -98,9 +98,9 @@ require_once("connect.php");
             </div>
         </div>
     </footer>
-    <script src="burger.js"></script>
-    <script src="dots.js"></script>
-    <script src="carousel.js"></script>
-    <script src="animation.js"></script>
+    <script src="javascript/burger.js"></script>
+    <script src="javascript/dots.js"></script>
+    <script src="javascript/carousel.js"></script>
+    <script src="javascript/animation.js"></script>
 </body>
 </html>

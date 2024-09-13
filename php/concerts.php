@@ -92,10 +92,10 @@ try {
             </div>
         </div>
     </footer>
-<script src="burger.js"></script>
-<script src="dots.js"></script>
-<script src="carousel.js"></script>
-<script src="modal.js"></script>
+<script src="javascript/burger.js"></script>
+<script src="javascript/dots.js"></script>
+<script src="javascript/carousel.js"></script>
+<script src="javascript/modal.js"></script>
 <div id="image-modal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="img-agrandie">

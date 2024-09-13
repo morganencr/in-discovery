@@ -163,8 +163,8 @@ try {
             </div>
         </div>
 </footer>
-<script src="burger.js"></script>
-<script src="dots.js"></script>
-<script src="carousel.js"></script>
+<script src="javascript/burger.js"></script>
+<script src="javascript/dots.js"></script>
+<script src="javascript/carousel.js"></script>
 </body>
 </html>

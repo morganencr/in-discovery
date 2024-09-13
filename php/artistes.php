@@ -97,7 +97,7 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
             <p><?php echo htmlspecialchars($artiste['genre']); ?>, <?php echo htmlspecialchars($artiste['location']); ?></p>
             </div>
             </div>
-            <div id="description-reseaux">
+            <div id="description-reseaux" class="content">
             <p><?php echo htmlspecialchars($artiste['description']); ?></p>
             <p>Où les trouver : 
         <?php if (!empty($artiste['reseaux_sociaux'])): ?>
@@ -128,8 +128,9 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
         </div>
     </footer>
-    <script src="burger.js"></script>
-    <script src="dots.js"></script>
-    <script src="carousel.js"></script>
+    <script src="javascript/burger.js"></script>
+    <script src="javascript/dots.js"></script>
+    <script src="javascript/carousel.js"></script>
+    <script src="javascript/animation2.js"></script>
 </body>
 </html>
