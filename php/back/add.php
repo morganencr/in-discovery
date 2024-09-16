@@ -116,6 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -123,35 +124,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="add.css">
     <title>Ajouter un élément</title>
     <script>
-    function previewImage() {
-        var select = document.getElementById("photo");
-        var preview = document.getElementById("imagePreview");
-        var selectedOption = select.options[select.selectedIndex].value;
+        function previewImage() {
+            var select = document.getElementById("photo");
+            var preview = document.getElementById("imagePreview");
+            var selectedOption = select.options[select.selectedIndex].value;
 
-        var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
-        if (selectedOption) {
-            preview.src = basePath + selectedOption;
-            preview.style.display = 'block';
-        } else {
-            preview.style.display = 'none';
+            var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
+            if (selectedOption) {
+                preview.src = basePath + selectedOption;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
         }
-    }
 
-    function previewImage2() {
-    var select = document.getElementById("photo2");
-    var preview = document.getElementById("imagePreview2");
-    var selectedOption = select.options[select.selectedIndex].value;
+        function previewImage2() {
+            var select = document.getElementById("photo2");
+            var preview = document.getElementById("imagePreview2");
+            var selectedOption = select.options[select.selectedIndex].value;
 
-    var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
-    if (selectedOption) {
-        preview.src = basePath + selectedOption;
-        preview.style.display = 'block';
-    } else {
-        preview.style.display = 'none';
-    }
-}
-</script>
+            var basePath = '<?php echo $type === 'concert' ? '../images/next/' : '../images/artistes/'; ?>';
+            if (selectedOption) {
+                preview.src = basePath + selectedOption;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+    </script>
 </head>
+
 <body>
     <h1>Ajouter un <?php echo htmlspecialchars($type); ?></h1>
 
@@ -195,13 +197,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <img id="imagePreview" class="image-preview" src="../images/artistes/<?php echo htmlspecialchars($data['photo']); ?>">
 
             <label for="photo2">Photo pour artistes:</label>
-<select id="photo2" name="photo2" onchange="previewImage2()">
-    <option value="">Sélectionner une photo</option>
-    <?php foreach ($photos as $photo): ?>
-        <option value="<?php echo htmlspecialchars(basename($photo)); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
-    <?php endforeach; ?>
-</select>
-<img id="imagePreview2" class="image-preview" src="">
+            <select id="photo2" name="photo2" onchange="previewImage2()">
+                <option value="">Sélectionner une photo</option>
+                <?php foreach ($photos as $photo): ?>
+                    <option value="<?php echo htmlspecialchars(basename($photo)); ?>"><?php echo htmlspecialchars(basename($photo)); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <img id="imagePreview2" class="image-preview" src="">
 
             <label for="reseaux_sociaux">Réseaux Sociaux:</label>
             <input type="text" id="reseaux_sociaux" name="reseaux_sociaux">
@@ -244,8 +246,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Ajouter</button>
         <button type="button" onclick="window.history.back()">Annuler</button>
     </form>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

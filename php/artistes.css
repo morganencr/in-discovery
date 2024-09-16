@@ -24,7 +24,6 @@ section img {
 }
 
 h1 {
-    /* text-align:center; */
     margin-top: 15px;
 }
 
@@ -78,6 +77,8 @@ section #description-reseaux p {
 #description-reseaux a:hover {
     color: #844865;
 }
+
+/*media querry*/
 
 @media (min-width: 768px) {
     #photo-caption {

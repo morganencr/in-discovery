@@ -80,6 +80,7 @@ h1 {
     color: #bbb;
 }
 
+/*media querry*/
 
 @media (min-width: 768px) {
     .concerts-container {

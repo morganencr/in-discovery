@@ -13,7 +13,7 @@ require_once("connect.php");
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <script>
-        // séquence du Konami Code
+        // Séquence du Konami Code
         var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
         var konamiIndex = 0;
 
@@ -21,11 +21,11 @@ require_once("connect.php");
             if (event.keyCode === konamiCode[konamiIndex]) {
                 konamiIndex++;
                 if (konamiIndex === konamiCode.length) {
-                    // redirige vers l'interface de gestion
+                    // Redirige vers l'interface de gestion
                     window.location.href = 'back/interface-gestion.php';
                 }
             } else {
-                konamiIndex = 0; // réinitialise l'index si une touche est incorrecte
+                konamiIndex = 0; // Réinitialise l'index si une touche est incorrecte
             }
         });
     </script>
@@ -33,11 +33,12 @@ require_once("connect.php");
 </head>
 
 <body>
-    <!-- Header Section -->
     <header>
         <div class="navbar">
             <nav class="nav-links">
-                <div class="logo"><a href="index.php"><img src="Images/logodiscovery.png" alt="Logo IN:DISCOVERY."></a></div>
+                <div class="logo">
+                    <a href="index.php"><img src="Images/logodiscovery.png" alt="Logo IN:DISCOVERY."></a>
+                </div>
                 <button class="burger-menu" id="burger-menu">
                     <img src="images/icones/menu-burger.png" alt="Menu Burger">
                 </button>
@@ -74,15 +75,13 @@ require_once("connect.php");
         </div>
     </header>
 
-    <!-- Main Content Section -->
     <main>
-        <!-- Coup de Coeur Section -->
         <section id="cdc">
             <article id="cdc-container">
                 <h2><span id="span-title">:</span>COUP DE COEUR<span id="span-title">.</span></h2>
                 <figure id="cdc-content">
                     <?php
-                    // Récupérer les artistes pour la section Coup de Coeur
+                    // Récupère les artistes pour la section Coup de Coeur
                     $sql = "SELECT id_artiste, nom, description, photo FROM artistes WHERE cdc = 1";
                     $stmt = $db->query($sql);
 
@@ -91,7 +90,7 @@ require_once("connect.php");
                     }
 
                     if ($stmt->rowCount() > 0) {
-                        // Afficher les données pour chaque artiste
+                        // Affiche les données pour chaque artiste
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             $photoPath = "../images/artistes/" . htmlspecialchars($row['photo']);
                             echo "<div class='artist'>
@@ -113,13 +112,12 @@ require_once("connect.php");
             </article>
         </section>
 
-        <!-- Découvrez Section -->
         <section id="decouvrez">
             <article id="decouvrez-container">
                 <h2><span id="span-title">:</span>DÉCOUVREZ<span id="span-title">.</span> nos groupes vedettes</h2>
                 <figure id="decouvrez-content">
                     <?php
-                    // Récupérer les artistes pour la section Découvrez
+                    // Récupère les artistes pour la section Découvrez
                     $sql2 = "SELECT id_artiste, nom, photo FROM artistes WHERE decouverte = 1";
                     $stmt2 = $db->query($sql2);
 
@@ -129,7 +127,7 @@ require_once("connect.php");
                     }
 
                     if ($stmt2->rowCount() > 0) {
-                        // Afficher les données pour chaque artiste
+                        // Affiche les données pour chaque artiste
                         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             $photoPath = "../images/artistes/" . htmlspecialchars($row2['photo']);
                             echo "<div class='artist'>
@@ -150,7 +148,6 @@ require_once("connect.php");
         </section>
     </main>
 
-    <!-- Footer Section -->
     <footer>
         <div class="section-logo">
             <img src="images/logodiscovery.png" alt="Logo IN:DISCOVERY.">
@@ -165,7 +162,6 @@ require_once("connect.php");
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
     <script src="javascript/burger.js"></script>
     <script src="javascript/dots.js"></script>
     <script src="javascript/carousel.js"></script>

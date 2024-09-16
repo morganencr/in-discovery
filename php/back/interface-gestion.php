@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="gestion.css">
 </head>
 <body>
-    <!-- Conteneur principal -->
+    
         <div id="admin-interface">
             <h1>Interface de gestion</h1>
-        <!-- Section Artistes -->
+        
         <section id="section-artistes">
             <h2>Tous les Artistes/Groupes</h2>
             <button onclick="window.location.href='add.php?type=artiste'">Ajouter un Artiste/Groupe</button>
@@ -27,7 +27,6 @@
             </table>
         </section>
 
-        <!-- Section Prochains Concerts -->
         <section id="section-concerts">
             <h2>Prochains Concerts</h2>
             <button onclick="window.location.href='add.php?type=concert'">Ajouter un Concert</button>
@@ -51,20 +50,17 @@
         </section>
     </div>
 
-    <!-- Formulaire de gestion des artistes et concerts -->
     <div id="management-form" style="display: none;">
         <form id="form-artiste-concert" method="POST" action="save.php">
             <input type="hidden" id="type" name="type">
             <input type="hidden" id="id" name="id">
 
-            <!-- Champs pour les artistes -->
             <div id="fields-artiste" style="display: none;">
                 <label for="nom">Nom:</label>
                 <input type="text" id="nom" name="nom" required>
 
                 <label for="id_genre">Genre:</label>
                 <select id="id_genre" name="id_genre" required>
-                    <!-- Remplir avec des genres disponibles -->
                 </select>
 
                 <label for="location">Lieu:</label>
@@ -89,7 +85,6 @@
                 <input type="checkbox" id="cdc" name="cdc">
             </div>
 
-            <!-- Champs pour les concerts -->
             <div id="fields-concert" style="display: none;">
                 <label for="photo_concert">Photo URL:</label>
                 <input type="text" id="photo_concert" name="photo">

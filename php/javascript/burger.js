@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const burgerMenuContent = document.getElementById('burger-menu-content');
 
     burgerMenu.addEventListener('click', function() {
-        // Basculer la classe active sans toucher à la visibilité directement
         burgerMenuContent.classList.toggle('active');
     });
 

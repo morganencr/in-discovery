@@ -90,29 +90,29 @@ $artiste = $stmt->fetch(PDO::FETCH_ASSOC);
             <? 
             $photoPath = "../images/artistes/" . htmlspecialchars($artiste['photo2']);
             ?>
-            <div id="photo-caption">
-            <img src="<?php echo $photoPath; ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
-            <div class="caption">
-            <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>
-            <p><?php echo htmlspecialchars($artiste['genre']); ?>, <?php echo htmlspecialchars($artiste['location']); ?></p>
-            </div>
-            </div>
-            <div id="description-reseaux" class="content">
-            <p><?php echo htmlspecialchars($artiste['description']); ?></p>
-            <p>Où les trouver : 
-        <?php if (!empty($artiste['reseaux_sociaux'])): ?>
-            <a href="<?php echo htmlspecialchars($artiste['reseaux_sociaux']); ?>" target="_blank">Suivez-les sur Instagram</a>
-        <?php else: ?>
-            Aucun lien Instagram disponible
-        <?php endif; ?>
-            </p>
-
-            <?php if (!empty($artiste['audio_url'])): ?>
-                 <div class="spotify-embed">
-                    <iframe src="<?php echo htmlspecialchars($artiste['audio_url']); ?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <div id="photo-caption">
+                    <img src="<?php echo $photoPath; ?>" alt="<?php echo htmlspecialchars($artiste['nom']); ?>">
+                <div class="caption">
+                    <h1><?php echo htmlspecialchars($artiste['nom']); ?></h1>
+                    <p><?php echo htmlspecialchars($artiste['genre']); ?>, <?php echo htmlspecialchars($artiste['location']); ?></p>
                 </div>
-            <?php endif; ?>
-            </div>
+                </div>
+                <div id="description-reseaux" class="content">
+                    <p><?php echo htmlspecialchars($artiste['description']); ?></p>
+                    <p>Où les trouver : 
+                        <?php if (!empty($artiste['reseaux_sociaux'])): ?>
+                        <a href="<?php echo htmlspecialchars($artiste['reseaux_sociaux']); ?>" target="_blank">Suivez-les sur Instagram</a>
+                        <?php else: ?>
+                        Aucun lien Instagram disponible
+                        <?php endif; ?>
+                    </p>
+
+                <?php if (!empty($artiste['audio_url'])): ?>
+                    <div class="spotify-embed">
+                    <iframe src="<?php echo htmlspecialchars($artiste['audio_url']); ?>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+                <?php endif; ?>
+                </div>
         </section>
     </main>
     <footer>

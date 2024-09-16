@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Ajoutez un événement 'mouseleave' pour réinitialiser la couleur
+        // événement 'mouseleave' pour réinitialiser la couleur
         dot.addEventListener('mouseleave', function() {
             const previousSpan = this.previousElementSibling;
             if (previousSpan && previousSpan.classList.contains('dot-menu-item')) {

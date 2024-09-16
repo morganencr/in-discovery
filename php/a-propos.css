@@ -35,6 +35,8 @@ h2 {
     transform: translateY(0);
 }
 
+/*animation apparition*/
+
 figure:nth-child(1) {
     transition-delay: 0.2s;
 }
@@ -92,6 +94,8 @@ figure:nth-child(2) p {
     font-weight:bold;
     color: black;
 }
+
+/*media querry*/
 
 @media (min-width: 768px) {
     .main-container {

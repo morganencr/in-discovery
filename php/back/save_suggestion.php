@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../connect.php';  // Assurez-vous que le chemin est correct
+include '../connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer les données du formulaire
+    // données du formulaire
     $nom_artiste = trim($_POST['nom_artiste']);
     $lien_titre = filter_input(INPUT_POST, 'lien_titre', FILTER_SANITIZE_URL);
     $message = isset($_POST['message']) ? trim($_POST['message']) : '';

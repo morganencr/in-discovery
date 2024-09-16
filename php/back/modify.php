@@ -9,7 +9,7 @@ if (!isset($_GET['type']) || !isset($_GET['id'])) {
 $type = $_GET['type'];
 $id = intval($_GET['id']);
 
-// Initialisation des variables pour pré-remplir le formulaire
+// initialisation des variables pour pré-remplir le formulaire
 $data = [];
 $concert_photos = [];
 $all_photos = [];
@@ -18,7 +18,7 @@ $all_photos = [];
 $concert_folder = '../images/next'; // Dossier des photos pour concerts
 $all_photos_folder = '../images/artistes'; // Dossier des photos pour artistes et découvertes
 
-// Fonction pour récupérer les fichiers d'un dossier et ses sous-dossiers
+// fonction pour récupérer les fichiers d'un dossier et ses sous-dossiers
 function getPhotos($dir) {
     $photos = [];
     $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
@@ -126,8 +126,8 @@ try {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    previewImage();  // Appelle la fonction pour afficher l'image actuelle de 'photo'
-    previewImage2(); // Appelle la fonction pour afficher l'image actuelle de 'photo2'
+    previewImage();  // Appelle la fonction pour afficher 'photo'
+    previewImage2(); // Appelle la fonction pour afficher 'photo2'
     });
 
 

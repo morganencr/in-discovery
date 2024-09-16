@@ -6,7 +6,7 @@ if (!$db) {
     die("Échec de la connexion à la base de données.");
 }
 
-// Ajouter cette ligne pour définir l'encodage
+// définir l'encodage
 $db->exec("SET NAMES 'utf8mb4'");
 
 // Mettre à jour le nom de la colonne si elle est 'id_suggestion'

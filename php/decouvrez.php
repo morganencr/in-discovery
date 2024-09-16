@@ -1,7 +1,7 @@
 <?php
 require_once 'connect.php';
 
-// Requête SQL pour récupérer les artistes des catégories 'punk/rock' et 'metal/hardcore'
+// Requête SQL pour récupérer les artistes des catégories
 $sql = "
 SELECT 
     a.id_artiste, 

@@ -1,7 +1,6 @@
 <?php
 include_once '../connect.php';
 
-// Vérifiez que la connexion à la base de données est correctement établie
 if (!$db) {
     die("Échec de la connexion à la base de données.");
 }
@@ -28,7 +27,6 @@ try {
         die("Type de suppression invalide");
     }
 
-    // Exécuter la requête de suppression
     $stmt->execute();
 
     // Vérifiez si une ligne a été supprimée

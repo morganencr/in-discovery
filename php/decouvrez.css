@@ -166,7 +166,8 @@ body {
     }
 }
 
-/* Styles pour les écrans larges (bureau) */
+/* media querry*/
+
 @media (min-width: 1024px) {
     .artiste img {
         width: 100%;
