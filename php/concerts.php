@@ -1,7 +1,7 @@
 <?php
 require_once 'connect.php';
 
-// Récupérer les informations des concerts
+// Fetch concerts informations
 try {
     $stmt = $db->query('SELECT * FROM concerts');
     $concerts = $stmt->fetchAll();

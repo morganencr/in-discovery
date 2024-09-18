@@ -3,13 +3,13 @@ session_start();
 include '../connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // données du formulaire
+    // Form data
     $nom_artiste = trim($_POST['nom_artiste']);
     $lien_titre = filter_input(INPUT_POST, 'lien_titre', FILTER_SANITIZE_URL);
     $message = isset($_POST['message']) ? trim($_POST['message']) : '';
     $date_suggestion = date('Y-m-d');
 
-    // Validation des données
+    // Data Validation
     $errors = [];
 
     if (strlen($nom_artiste) < 3 || strlen($nom_artiste) > 255) {
@@ -24,14 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Le message doit avoir entre 10 et 2000 caractères.";
     }
 
-    // Si des erreurs sont présentes
+    // If errors are present
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
         header("Location: ../formulaire.php");
         exit();
     }
 
-    // Insertion des données dans la base de données
+    // Inserting data into the database
     try {
         $sql = "INSERT INTO suggestions (nom_artiste, lien_titre, message, date_suggestion) VALUES (:nom_artiste, :lien_titre, :message, :date_suggestion)";
         $stmt = $db->prepare($sql);

@@ -1,7 +1,6 @@
 <?php
 require_once 'connect.php';
 
-// Requête SQL pour récupérer les artistes des catégories
 $sql = "
 SELECT 
     a.id_artiste, 
@@ -22,16 +21,16 @@ ORDER BY
     g.categorie;
 ";
 
-// Préparation et exécution de la requête
+// Preparation and execution of the querry
 try {
     $stmt = $db->prepare($sql);
     $stmt->execute();
     
-    // Initialisation des tableaux pour chaque catégorie
+    // Initialization of arrays for each category
     $punkRockArtists = [];
     $metalHardcoreArtists = [];
 
-    // Répartition des artistes par catégorie
+    // Distribution of artists by category
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         if ($row['categorie'] === 'punk/rock') {
             $punkRockArtists[] = $row;

@@ -1,4 +1,4 @@
-// Afficher le formulaire pour ajouter ou modifier un artiste ou un concert
+// Show the form to add or modify an artist or concert
 function showForm(type, id = null) {
     document.getElementById('management-form').style.display = 'block';
     document.getElementById('type').value = type;
@@ -27,12 +27,12 @@ function showForm(type, id = null) {
     }
 }
 
-// Masquer le formulaire de gestion
+// Hide management form
 function hideForm() {
     document.getElementById('management-form').style.display = 'none';
 }
 
-// Supprimer une entité
+// Delete an entity
 function deleteEntity(type, id) {
     if (confirm('Êtes-vous sûr de vouloir supprimer cet élément ?')) {
         fetch(`delete_${type}.php?id=${id}`, { method: 'POST' })

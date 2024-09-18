@@ -7,12 +7,12 @@ if (!$db) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Récupérer l'ID de la suggestion à supprimer
+    // Retrieve the ID of the suggestion to delete
     $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
 
     if ($id > 0) {
         try {
-            // Préparer et exécuter la requête de suppression
+            // Prepare and execute the delete query
             $sql = "DELETE FROM suggestions WHERE id_suggestion = ?";
             $stmt = $db->prepare($sql);
             $stmt->execute([$id]);
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['errors'] = ["ID invalide pour la suppression."];
     }
 
-    // Rediriger vers la page des suggestions
+    // Redirect to suggestions page
     header("Location: view_suggestions.php");
     exit();
 }

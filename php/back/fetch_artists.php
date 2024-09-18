@@ -28,7 +28,7 @@ try {
 }
 ?>
 
-<!-- Ajout de JavaScript pour la suppression -->
+<!-- Javascript for deletion -->
 <script>
 function deleteArtist(id) {
     if (confirm("Êtes-vous sûr de vouloir supprimer cet artiste ?")) {

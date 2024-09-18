@@ -14,7 +14,7 @@ require_once("connect.php");
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <script>
-        // Séquence du Konami Code
+        // Konami Code
         var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
         var konamiIndex = 0;
 
@@ -22,11 +22,11 @@ require_once("connect.php");
             if (event.keyCode === konamiCode[konamiIndex]) {
                 konamiIndex++;
                 if (konamiIndex === konamiCode.length) {
-                    // Redirige vers l'interface de gestion
+                    // Redirect to admin interface
                     window.location.href = 'back/interface-gestion.php';
                 }
             } else {
-                konamiIndex = 0; // Réinitialise l'index si une touche est incorrecte
+                konamiIndex = 0; // Reset the index if a key is incorrect
             }
         });
     </script>
@@ -118,7 +118,7 @@ require_once("connect.php");
                 <h2><span id="span-title">:</span>DÉCOUVREZ<span id="span-title">.</span> nos groupes vedettes</h2>
                 <figure id="decouvrez-content">
                     <?php
-                    // Récupère les artistes pour la section Découvrez
+                    // Fetch the artists for the Favorites section
                     $sql2 = "SELECT id_artiste, nom, photo FROM artistes WHERE decouverte = 1";
                     $stmt2 = $db->query($sql2);
 
@@ -128,7 +128,7 @@ require_once("connect.php");
                     }
 
                     if ($stmt2->rowCount() > 0) {
-                        // Affiche les données pour chaque artiste
+                        // Display the data for each artist
                         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             $photoPath = "../images/artistes/" . htmlspecialchars($row2['photo']);
                             echo "<div class='artist'>

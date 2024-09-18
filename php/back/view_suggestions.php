@@ -6,10 +6,10 @@ if (!$db) {
     die("Échec de la connexion à la base de données.");
 }
 
-// définir l'encodage
+// set encoding
 $db->exec("SET NAMES 'utf8mb4'");
 
-// Mettre à jour le nom de la colonne si elle est 'id_suggestion'
+// Update column name if it is 'id_suggestion'
 $sql = "SELECT id_suggestion, nom_artiste, lien_titre, message, date_suggestion FROM suggestions ORDER BY date_suggestion DESC";
 $stmt = $db->query($sql);
 $suggestions = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -27,7 +27,7 @@ $suggestions = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h1>Suggestions Soumises</h1>
 
     <?php
-    // Afficher les messages de succès ou d'erreur
+    // Show success or error messages
     if (isset($_SESSION['success'])) {
         echo "<p>{$_SESSION['success']}</p>";
         unset($_SESSION['success']);

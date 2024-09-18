@@ -33,7 +33,7 @@ html, body {
     background-color: #ebebeb;
 }
 
-/*navbar*/
+/*NAVBAR*/
 
 main {
     flex-grow: 1;
@@ -84,7 +84,7 @@ main {
     animation: neon-blink 0.8s infinite alternate;
 }
 
-/* Styles pour le menu burger */
+/* STYLES FOR BURGER MENU */
 .burger-menu {
     display: block; 
     background: none;
@@ -132,7 +132,6 @@ main {
     font-size: 1.2rem;
 }
 
-/* Styles pour le menu burger activé */
 .side-menu.active {
     display: flex;
     flex-direction: column;
@@ -173,7 +172,7 @@ ul {
     opacity: 1;
 }
 
-/*Styles pour le carousel*/
+/*CAROUSEL STYLES*/
 
 .img-deco {
     position: relative;
@@ -403,7 +402,7 @@ footer {
     transform: scale(1.1);
 }
 
-/*media querry*/
+/*MEDIA QUERRY*/
 
 @media (min-width: 768px) {
 
@@ -417,7 +416,7 @@ footer {
     }
 
     .burger-menu-content {
-        display: none; /* Ne pas afficher le menu burger en grand écran */
+        display: none;
     }
 
     .container-menu {

@@ -120,7 +120,7 @@ h3 {
 
 }
 
-/* Styles WebKit */
+/* WEBKIT STYLES */
 ::-webkit-scrollbar {
     width: 12px;
     height:12px;
@@ -141,7 +141,7 @@ h3 {
     display: none; 
 }
 
-/* Styles Firefox */
+/* FIREFOX STYLES */
 html {
     scrollbar-width: thin;
 }
@@ -150,6 +150,7 @@ body {
     scrollbar-color: #844865 transparent;
 }
 
+/* MEDIA QUERRY*/
 
 @media (min-width: 768px) {
     .artiste img {
@@ -165,8 +166,6 @@ body {
         gap: 25px;
     }
 }
-
-/* media querry*/
 
 @media (min-width: 1024px) {
     .artiste img {

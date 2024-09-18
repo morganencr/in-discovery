@@ -1,13 +1,13 @@
 <?php
 require_once("connect.php");
 
-// Test de connexion
+// Connection test
 if (!$db) {
     echo "Erreur de connexion à la base de données.";
     exit;
 }
 
-// Récupérer l'ID de l'artiste depuis l'URL
+// Fetch artist's ID from the URL
 $artiste_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($artiste_id <= 0) {
@@ -15,7 +15,7 @@ if ($artiste_id <= 0) {
     exit;
 }
 
-// Préparer la requête SQL pour récupérer les détails de l'artiste avec son genre
+// Prepare the SQL query to fetch the artist details along with their genre
 $sql = "
     SELECT a.nom, a.description, a.photo2, a.location, a.reseaux_sociaux, a.audio_url, g.categorie, g.genre 
     FROM artistes a

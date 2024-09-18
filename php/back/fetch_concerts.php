@@ -11,7 +11,7 @@ try {
 
     if ($concerts->rowCount() > 0) {
         while($row = $concerts->fetch(PDO::FETCH_ASSOC)) {
-            $photoPath = '../images/next/' . htmlspecialchars($row["photo"]); // Concaténer correctement le chemin
+            $photoPath = '../images/next/' . htmlspecialchars($row["photo"]); // Correctly concatenate the path
             echo "<tr>
                     <td><img src='" . $photoPath . "' alt='Photo du concert' style='width: 100px; height: auto;'></td>
                     <td>" . htmlspecialchars($row["groupe"]) . "</td>
@@ -30,7 +30,7 @@ try {
 }
 ?>
 
-<!-- Ajout de JavaScript pour la suppression -->
+<!-- Javascript for deletion -->
 <script>
 function deleteConcert(id) {
     if (confirm("Êtes-vous sûr de vouloir supprimer ce concert ?")) {

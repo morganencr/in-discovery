@@ -85,7 +85,7 @@ input[type="text"], input[type="url"], textarea {
     background: linear-gradient(45deg, #743a56, #a56885);
 }
 
-/*media querry*/
+/*MEDIA QUERRY*/
 
 @media (min-width: 768px) {
     .texte {

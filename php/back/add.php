@@ -11,7 +11,7 @@ if (!$db) {
 
 $type = $_GET['type'] ?? '';
 
-// Récupérer les genres depuis la base de données
+// Fetch the genres from the database
 $genres = [];
 try {
     $sql = "SELECT id_genre, genre FROM genres";
@@ -21,7 +21,7 @@ try {
     echo "Erreur lors de la récupération des genres : " . $e->getMessage();
 }
 
-// Fonction pour récupérer les images d'un répertoire
+
 function getImagesFromDirectory($directory) {
     $images = [];
     $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
@@ -42,22 +42,22 @@ function getImagesFromDirectory($directory) {
     return $images;
 }
 
-// Définir les dossiers d'images
+// Define images folders
 $concert_folder = __DIR__ . '/../images/next';
 $all_photos_folder = __DIR__ . '/../images';
 
-// Récupérer les images en fonction du type
+// Fetch the images based on the type
 if ($type === 'concert') {
     $photos = getImagesFromDirectory($concert_folder);
 } else {
     $photos = getImagesFromDirectory($all_photos_folder);
 }
 
-// Traitement du formulaire
+// Form processing
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
-    // Récupération de la photo
+    // Fetching the photo
     $photo = $_POST['photo'] ?? '';
 
     if ($action === 'add') {
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt = $db->prepare($sql);
 
-            // Préparer les paramètres
+            // Prepare the parameters
             $params = [
                 ':nom' => $_POST['nom'] ?? '',
                 ':id_genre' => $_POST['id_genre'] ?? '',
@@ -88,19 +88,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':lieux' => $_POST['lieux'] ?? ''
             ];
 
-            // Filtrer les paramètres en fonction de la requête SQL
+            // Filter the parameters according to the SQL query
             $params = array_filter($params, function($v, $k) use ($sql) {
                 return strpos($sql, $k) !== false;
             }, ARRAY_FILTER_USE_BOTH);
 
-            // Lier les paramètres avec bindParam
+            // Bind the parameters with bindParam
             foreach ($params as $key => $value) {
                 $stmt->bindParam($key, $params[$key], PDO::PARAM_STR);
             }
 
             $stmt->execute();
 
-            // Rediriger vers la page de gestion après ajout
+            // Redirect to the admin page after adding
             if (!headers_sent()) {
                 header("Location: interface-gestion.php");
                 exit;
@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="hidden" name="action" value="add">
 
         <?php if ($type === 'artiste'): ?>
-            <!-- Formulaire pour ajouter un artiste -->
+            <!-- Form to add an artist -->
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom" required>
 
@@ -218,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="checkbox" id="cdc" name="cdc">
 
         <?php elseif ($type === 'concert'): ?>
-            <!-- Formulaire pour ajouter un concert -->
+            <!-- Form to add a concert -->
             <label for="photo">Photo:</label>
             <select id="photo" name="photo" onchange="previewImage()">
                 <option value="">Sélectionner une photo</option>
@@ -233,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ?>
             </select>
 
-            <!-- Image de prévisualisation -->
+            <!-- Preview image -->
             <img id="imagePreview" class="image-preview" src="../images/next/<?php echo htmlspecialchars($data['photo']); ?>">
 
             <label for="groupe">Groupe:</label>

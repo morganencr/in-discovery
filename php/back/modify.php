@@ -1,7 +1,7 @@
 <?php
 include_once '../connect.php';
 
-// Vérification des paramètres URL
+// Checking URL parameters
 if (!isset($_GET['type']) || !isset($_GET['id'])) {
     die("Type ou ID manquant.");
 }
@@ -9,31 +9,31 @@ if (!isset($_GET['type']) || !isset($_GET['id'])) {
 $type = $_GET['type'];
 $id = intval($_GET['id']);
 
-// initialisation des variables pour pré-remplir le formulaire
+// Initializing variables to pre-fill the form
 $data = [];
 $concert_photos = [];
 $all_photos = [];
 
-// Chemins des dossiers
-$concert_folder = '../images/next'; // Dossier des photos pour concerts
-$all_photos_folder = '../images/artistes'; // Dossier des photos pour artistes et découvertes
+// Folder paths
+$concert_folder = '../images/next'; // Concert photo file
+$all_photos_folder = '../images/artistes'; // File of photos for artists and discoveries
 
-// fonction pour récupérer les fichiers d'un dossier et ses sous-dossiers
+// Function to recover files from a folder and its subfolders
 function getPhotos($dir) {
     $photos = [];
     $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
     foreach ($iterator as $fileinfo) {
         if ($fileinfo->isFile() && in_array($fileinfo->getExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
-            // Créer le chemin relatif à partir du dossier racine
+            // Create relative path from root folder
             $relative_path = str_replace($dir . '/', '', $fileinfo->getPathname());
-            // Conserver le chemin complet pour utiliser dans le formulaire
+            // Keep full path for use in form
             $photos[$fileinfo->getFilename()] = 'images/' . $relative_path;
         }
     }
     return $photos;
 }
 
-// Récupérer la liste des photos du dossier pour les concerts
+// Fetch list of photos from folder for concerts
 if ($type === 'concert') {
     if (is_dir($concert_folder)) {
         $concert_photos = getPhotos($concert_folder);
@@ -42,7 +42,7 @@ if ($type === 'concert') {
     }
 }
 
-// Récupérer la liste des photos du dossier pour artistes et découvertes
+// Retrieve list of photos from folder for artistes and découvertes
 if ($type === 'artiste' || $type === 'decouverte') {
     if (is_dir($all_photos_folder)) {
         $all_photos = getPhotos($all_photos_folder);
@@ -51,7 +51,7 @@ if ($type === 'artiste' || $type === 'decouverte') {
     }
 }
 
-// Requête SQL pour récupérer les données existantes
+// SQL query to retrieve existing data
 try {
     switch ($type) {
         case 'artiste':
@@ -71,7 +71,7 @@ try {
         die("Données non trouvées.");
     }
 
-    // Récupérer la liste des genres pour le menu déroulant
+    // Retrieve genre list for dropdown menu
     $genres_query = $db->query("SELECT * FROM genres");
     $genres = $genres_query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -126,8 +126,8 @@ try {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    previewImage();  // Appelle la fonction pour afficher 'photo'
-    previewImage2(); // Appelle la fonction pour afficher 'photo2'
+    previewImage();  // Call the fonction to display 'photo'
+    previewImage2(); // Call the fonction to display 'photo2'
     });
 
 
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <?php endforeach; ?>
             </select><br>
 
-            <!-- Image de prévisualisation -->
+            <!-- Preview image -->
             <img id="imagePreview" class="image-preview" src="../images/next/<?php echo htmlspecialchars($data['photo']); ?>" alt="Aperçu de l'image"><br>
 
             <label for="lieux">Lieux:</label>

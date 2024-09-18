@@ -13,6 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(currentSlide);
     }
 
-    setInterval(nextSlide, 3000); //Change la slide toutes les 3sec
-    showSlide(currentSlide); // Montre la première slide initialement
+    setInterval(nextSlide, 3000); // Change the slide every 3sec
+    showSlide(currentSlide); // Show the first slide initially
 });

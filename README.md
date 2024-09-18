@@ -1,76 +1,74 @@
-IN:DISCOVERY. est un site web dédié à la découverte de groupes et d'artistes émergents dans 
-les scènes punk, rock, metal et hardcore. Notre objectif est de mettre en lumière les talents 
-moins connus et de leur offrir une plateforme pour se faire entendre.
+IN:DISCOVERY. is a website dedicated to discovering emerging bands and artists in the punk, rock, metal, and hardcore scenes. Our goal is to highlight lesser-known talents and provide them with a platform to be heard.
 
-## Fonctionnalités :
+## Features :
 
-- Catalogue de Groupes et Artistes : Découvrez des groupes classés par genre musical (punk, rock, metal, hardcore).
+- Band and Artist Catalog: Discover bands sorted by musical genre (punk, rock, metal, hardcore).
 
-- Soumission de Suggestions : Les visiteurs peuvent soumettre leurs propres découvertes de groupes via un formulaire de suggestions. Chaque soumission peut inclure le nom du groupe, un lien pour écouter leur musique et un commentaire optionnel.
+- Suggestion Submission: Visitors can submit their own band discoveries via a suggestion form. Each submission can include the band's name, a link to listen to their music, and an optional comment.
 
-- Calendrier des Concerts : Consultez les prochains concerts et événements liés aux groupes présentés.
+- Concert Calendar: View upcoming concerts and events related to the featured bands.
 
-- Back Office : Gestion des contenus via une interface admin accessible grâce à un konami code, facilitée par des frameworks tels que Bootstrap pour une expérience utilisateur améliorée.
+- Back Office: Content management through an admin interface accessible via a Konami code, facilitated by frameworks like Bootstrap for an enhanced user experience.
 
-## Technologies Utilisées :
+## Technologies used :
 
-- Frontend : HTML, CSS, JavaScript (possiblement avec des frameworks comme Bootstrap pour le design et l'interaction utilisateur).
+- Frontend: HTML, CSS, JavaScript.
 
-- Backend : PHP, gestion des bases de données avec MySQL.
+- Backend: PHP, database management with MySQL.
 
-- Gestion de la Base de Données : phpMyAdmin pour une gestion simplifiée.
+- Database Management: phpMyAdmin for simplified management.
 
-- Conteneurisation : Utilisation de Docker pour l'environnement de développement (PHP, MySQL, phpMyAdmin).
+- Containerization: Use of Docker for the development environment (PHP, MySQL, phpMyAdmin).
 
-## Prérequis :
+## Prerequisites :
 
-- Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votre machine :
+- Before starting, make sure you have the following tools installed on your machine:
 
 → Docker
 → Docker Compose
 
 ## Installation :
 
-1 Clonez le dépôt du projet : 
+1 Clone the project repository:
 
 git clone https://github.com/morganencr/in-discovery.git
 cd in-discovery
 
-2 Lancez les conteneurs Docker : 
+2 Launch the Docker containers: 
 
-- Utilisez Docker Compose pour construire et lancer les conteneurs nécessaires :
+- Use Docker Compose to build and start the necessary containers:
 
 docker-compose up  --build
 
-Cela démarrera les conteneurs pour PHP, MySQL et phpMyAdmin.
+This will start the containers for PHP, MySQL, and phpMyAdmin.
 
-3 Accédez à l'application :
+3 Access the application:
 
-Une fois les conteneurs lancés, vous pouvez accéder au site en ouvrant votre navigateur et en naviguant vers http://localhost:8019.
+Once the containers are running, you can access the site by opening your browser and navigating to http://localhost:8019.
 
-## Utilisation : 
+## Usage : 
 
-- Navigation : Parcourez les différentes sections du site pour découvrir des groupes et consulter les événements à venir.
+- Navigation: Browse the different sections of the site to discover bands and view upcoming events.
 
-- Soumettre une Découverte : Utilisez le formulaire de suggestions pour soumettre des groupes que vous souhaitez voir figurer sur le site.
+- Submit a Discovery: Use the suggestion form to submit bands you’d like to see featured on the site.
 
-- Administration : Connectez-vous à l'interface admin (back office) pour gérer les contenus, les groupes, et les événements. (Accès réservé aux administrateurs.)
+- Administration: Log in to the admin interface (back office) to manage content, bands, and events. (Admin access only.)
 
 ## Contribution
 
-Les contributions sont les bienvenues. Si vous souhaitez contribuer à IN:DISCOVERY., 
-veuillez suivre ces étapes :
+Contributions are welcome. If you wish to contribute to IN:DISCOVERY., 
+please follow these steps :
 
-- Forkez le projet.
+- Fork the project..
 
-- Créez une branche pour votre fonctionnalité (git checkout -b ma-nouvelle-fonctionnalite).
+- Create a branch for your feature (git checkout -b my-new-feature).
 
-- Faites vos modifications et commitez-les (git commit -m 'Ajouter une nouvelle fonctionnalité').
+- Make your changes and commit them (git commit -m 'Add a new feature').
 
-- Poussez vos modifications (git push origin ma-nouvelle-fonctionnalite).
+- Push your changes (git push origin my-new-feature).
 
-- Ouvrez une Pull Request.
+- Open a Pull Request.
 
-## Remerciements : 
+## Acknowledgements : 
 
-Merci à tous les contributeurs et à tous ceux qui soutiennent la scène musicale underground !
+Thanks to all contributors and everyone who supports the underground music scene!
