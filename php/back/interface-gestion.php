@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+$inactivityLimit = 1800;
+
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $inactivityLimit)) {
+    session_unset();
+    session_destroy();
+    header("Location: ../index.php");
+    exit;
+}
+
+$_SESSION['last_activity'] = time();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,8 +23,8 @@
 </head>
 <body>
     
-        <div id="admin-interface">
-            <h1>Interface de gestion</h1>
+    <div id="admin-interface">
+        <h1>Interface de gestion</h1>
         
         <section id="section-artistes">
             <h2>Tous les Artistes/Groupes</h2>
@@ -48,7 +63,6 @@
             <h2>Suggestions</h2>
             <button onclick="window.location.href='view_suggestions.php'">Voir les Suggestions</button>
         </section>
-    </div>
 
     <div id="management-form" style="display: none;">
         <form id="form-artiste-concert" method="POST" action="save.php">
@@ -99,6 +113,8 @@
             <button type="submit">Sauvegarder</button>
             <button type="button" onclick="hideForm()">Annuler</button>
         </form>
+    </div>
+    <a href="logout.php" class="btn btn-danger">Se déconnecter</a>
     </div>
     <script src="gestion.js" defer></script>
 </body>

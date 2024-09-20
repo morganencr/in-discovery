@@ -137,7 +137,9 @@ require_once("connect.php");
                                         <img src='" . $photoPath . "' alt='" . htmlspecialchars($row2['nom']) . "'>
                                     </a>
                                     </div>
+                                    <a href='artistes.php?id=" . htmlspecialchars($row2['id_artiste']) . "'>
                                     <h3 class='groupes-decouverte'>" . htmlspecialchars($row2['nom']) . "</h3>
+                                    </a>
                                   </div>";
                         }
                     } else {
@@ -162,7 +164,6 @@ require_once("connect.php");
             </div>
         </div>
     </footer>
-
     <script src="javascript/burger.js"></script>
     <script src="javascript/dots.js"></script>
     <script src="javascript/carousel.js"></script>

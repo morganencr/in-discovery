@@ -70,7 +70,7 @@ try {
     <article class="concerts-container">
             <?php foreach ($concerts as $concert): ?>
                 <figure class="img-caption">
-                    <td><img src="images/next/<?php echo htmlspecialchars($concert['photo']); ?>" alt="<?php echo htmlspecialchars($concert['groupe']); ?>" width="100"></td>
+                    <td><img src="images/next/<?php echo htmlspecialchars($concert['photo']); ?>" alt="<?php echo htmlspecialchars($concert['groupe']); ?>" width="100" tabindex="0" class="concert-image"></td>
                     <td><?php echo htmlspecialchars($concert['groupe']); ?></td>
                     <div class="lieu">
                     <td><?php echo htmlspecialchars($concert['lieux']); ?></td>
