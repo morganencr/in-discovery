@@ -6,7 +6,7 @@ if (!$db) {
 }
 
 try {
-    $sql = "SELECT id_artiste, nom FROM artistes";
+    $sql = "SELECT id_artiste, nom FROM artistes ORDER BY nom ASC";
     $artists = $db->query($sql);
 
     if ($artists->rowCount() > 0) {

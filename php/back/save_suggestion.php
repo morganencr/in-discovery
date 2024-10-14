@@ -4,9 +4,9 @@ include '../connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Form data
-    $nom_artiste = trim($_POST['nom_artiste']);
+    $nom_artiste = htmlspecialchars(trim($_POST['nom_artiste']), ENT_QUOTES, 'UTF-8');
     $lien_titre = filter_input(INPUT_POST, 'lien_titre', FILTER_SANITIZE_URL);
-    $message = isset($_POST['message']) ? trim($_POST['message']) : '';
+    $message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message']), ENT_QUOTES, 'UTF-8') : '';
     $date_suggestion = date('Y-m-d');
 
     // Data Validation

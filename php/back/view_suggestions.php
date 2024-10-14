@@ -33,6 +33,7 @@ $suggestions = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <title>Suggestions</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="../images/logodiscovery.ico">
     <link rel="stylesheet" href="suggestions.css">
 </head>
 <body>

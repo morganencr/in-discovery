@@ -100,8 +100,9 @@ try {
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="../images/logodiscovery.ico">
     <link rel="stylesheet" href="modify.css">
-    <title>Modifier <?php echo htmlspecialchars($type); ?></title>
+    <title>Modifier un <?php echo htmlspecialchars($type); ?></title>
     <style>
         .image-preview {
             width: 150px;
@@ -148,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 </head>
 <body>
-    <h1>Modifier <?php echo htmlspecialchars($type); ?></h1>
+    <h1>Modifier un <?php echo htmlspecialchars($type); ?></h1>
     <form method="post" action="save.php" accept-charset="UTF-8">
         <input type="hidden" name="type" value="<?php echo htmlspecialchars($type); ?>">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
