@@ -83,7 +83,7 @@ require_once("connect.php");
                 <h2><span id="span-title">:</span>COUP DE COEUR<span id="span-title">.</span></h2>
                 <figure id="cdc-content">
                     <?php
-                    // Récupère les artistes pour la section Coup de Coeur
+                    // Fetch the artists for the Favorite section
                     $sql = "SELECT id_artiste, nom, description, photo FROM artistes WHERE cdc = 1";
                     $stmt = $db->query($sql);
 
@@ -92,7 +92,7 @@ require_once("connect.php");
                     }
 
                     if ($stmt->rowCount() > 0) {
-                        // Affiche les données pour chaque artiste
+                        // Display the data for each artist
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             $photoPath = "../images/artistes/" . htmlspecialchars($row['photo']);
                             echo "<div class='artist'>
@@ -119,7 +119,7 @@ require_once("connect.php");
                 <h2><span id="span-title">:</span>DÉCOUVREZ<span id="span-title">.</span> nos groupes vedettes</h2>
                 <figure id="decouvrez-content">
                     <?php
-                    // Fetch the artists for the Favorites section
+                    // Fetch the artists for the Discovery section
                     $sql2 = "SELECT id_artiste, nom, photo FROM artistes WHERE decouverte = 1";
                     $stmt2 = $db->query($sql2);
 
